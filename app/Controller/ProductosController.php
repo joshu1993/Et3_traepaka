@@ -69,6 +69,22 @@ class ProductosController extends AppController
 			$this-> set('producto', $producto);
 		}
 
+	public function misproductos($id= Null){
+		
+			if (!$id)
+			{
+				throw new NotFoundException('Datos Invalidos');
+			}
+
+			$producto= $this->Producto->findById($id);
+
+			if(!$producto)
+			{
+				throw new NotFoundException('El producto no existe');
+			}
+			$this-> set('producto', $producto);
+		}
+
 
 	public function editar($id=null)
 	{

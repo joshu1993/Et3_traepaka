@@ -37,7 +37,7 @@
 
           <li><a <?php echo $this->Html->link('Inicio', '/Productos/index', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Chats', '/Chats/vista', array('class' => 'button')); ?></a></li>
-          <li class="active"><a <?php echo $this->Html->link('Mis productos', '/Productos/index', array('class' => 'button')); ?></a></li>
+          <li class="active"><a <?php echo $this->Html->link('Mis productos', '/Productos/misproductos', array('class' => 'button')); ?></a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">

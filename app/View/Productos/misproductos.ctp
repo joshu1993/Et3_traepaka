@@ -1,6 +1,6 @@
- <?php 
+  <?php 
                         
-            echo $this->element('navbar-1');         
+            echo $this->element('navbar-2');         
            
   ?>
 
@@ -14,29 +14,33 @@
 </div>
  <section>
      <div class="user form">
-	  <?php foreach($productos as $producto): ?>
+    <?php foreach($productos as $producto): ?>
+      <?php if(empty($user['Producto'])): ?>
+      <p> No tiene productos asociados </p>
+      <?php endif; ?> 
         <div id="cuadroproductos" type="submit" class="row">
           <div id="cuadroanuncio" class= "col-sm-4">
             <div id="imagenproducto">
-              <img src="/ET2_Traepaka/app/webroot/img/"></img>
+              <img src="../app/webroot/img/"></img>
             </div>
             <div id="nombreProducto" >
+              <h1><?php echo $us['Producto']['name']; ?></h1>
+              <h2><?php echo $us['Producto']['place']; ?></h2>
 
-              <h1><?php echo $producto['Producto']['name']; ?></h1>
-              <h2><?php echo $producto['Producto']['place']; ?></h2>
-
-		          <h2><?php echo $producto['Producto']['price']; ?>€&nbsp&nbsp</h2>
+              <h2><?php echo $us['Producto']['price']; ?>€&nbsp&nbsp</h2>
             </div>
-              <h3><?php echo $producto['Producto']['description']; ?></h3>
+              <h3><?php echo $us['Producto']['description']; ?></h3>
             <div id="botones" class="col-sm-6" >
               <button type="submit" class="verdetalles"><?php echo $this->Form->postLink('Detalles', array('action'=> 'ver', $producto['Producto']['id'])); ?></button>
 
+              <button type="submit" class="editar"><?php echo $this->Html->link('Editar',array('controller'=>'productos','action'=>'editar', $producto['Producto']['id'])); ?></button>
+
+              <button type="submit" class="eliminar"><?php echo $this->Form->postLink('Eliminar', array('action'=> 'eliminar', $producto['Producto']['id']), array('confirm' => 'Eliminar producto ')); ?></button>
+
             </div>
           </div>
-		    </div>
-		<?php endforeach; ?>
-     
-    </div>
+        </div>
+    <?php endforeach; ?>
   </section>
 </div>
 
