@@ -20,6 +20,8 @@ class ProductosController extends AppController
 			
 	}
 
+	
+
 /*	
 	public function nuevo()
 	{
@@ -137,6 +139,38 @@ class ProductosController extends AppController
 			$this->redirect(array('action'=>'index'));
 		}
 	}
+
+	public function search() {
+			$datos = $this->request->query['search'];
+
+			$this->Paginator->settings = array(
+				'limit' => 5,
+				'order' => array(
+					'Producto.initDate' => 'desc'),
+					'conditions'=>array( 'OR' => array(
+					array('Producto.name LIKE'=>'%'.$datos.'%'),
+					array('Producto.description LIKE'=>'%'.$datos.'%'),)
+				));
+
+			$data = $this->Paginator->paginate('Post');
+
+			foreach ($data as $key => $row) {
+				$sql = "Select * from productos where id = ".$row["Producto"]["id"]."";
+			}
+
+			$this->set('search', $data);
+		}
+          
+		private function isValidUser($id, $user_id) {
+			$ownerProducto = $this->Producto->findById($id);
+			//print_r($ownerPost);
+			if($ownerProducto['Producto']['user_id'] == $user_id) {
+				return true;
+			} else {
+				return false;
+			}
+
+		}
 	
 
 }

@@ -52,8 +52,8 @@ width:200px;
   }
 
 .cierresesion{
-  color: #fff;
-  background-color: #CC99CC;
+  color: #000000;
+  background-color: #ffffff;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -198,7 +198,7 @@ width:200px;
 .verdetalles{
   color: #f9f9f9;
   font-weight: bold;
-  background-color: #5bc0de;
+  background-color: #A9F5E1;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -222,7 +222,7 @@ width:200px;
 .eliminar{
   color: #f9f9f9;
   font-weight: bold;
-  background-color: #d9534f;
+  background-color: #F78181;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
@@ -246,7 +246,7 @@ width:200px;
 .editar{
   color: #f9f9f9;
   font-weight: bold;
-  background-color: #8b8888;
+  background-color: #BCF5A9;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;

@@ -1,50 +1,58 @@
+<?php
+    echo $this->Html->meta('icon');
 
-    <div class="navbar-wrapper">
-      <div class="container-fluid no-padding-side">
+    echo $this->Html->css(array('bootstrap.min','bootstrap-theme.min'));
+    echo $this->Html->css('traepaka.css'); 
+    echo $this->Html->script(array('jquery','bootstrap.min'));
 
-        <nav class="navbar navbar-default  navbar-static-top no-margin-bottom">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-              <ul class="nav navbar-nav">
-                <li>
-                <?php echo $this->Html->link("<span class='glyphicon glyphicon-home'></span>", array('controller' => 'posts', 'action' => 'index'), array('escape' => false)); ?>
-                </li>
-                <li><a href="#"><?php__('TAGS')?></a></li>                                
-              </ul>
-              <ul class="nav navbar-nav navbar-right">
+    echo $this->fetch('meta');
+    echo $this->fetch('css');
+    echo $this->fetch('script');
+  ?>
+<!doctype html>
+<html>
+<head>
+</head>
 
-                <li class="divider-vertical"></li>
-                <li class="dropdown">
-                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?= $current_user['username']; ?> <span class="caret"></span></a>
-                  <ul class="dropdown-menu">
-
-                      <?php 
-                      //echo $this->Html->link(('Desconectarse'), '/users/logout',  ['class' => 'button']); 
-                      echo $this->Html->link(__('Desconectarse'), array('controller' => 'users', 'action' => 'logout', 'class' => 'button')); 
-                      ?>
-                    
-                    <li id="login-menu">
-
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
+<body>
+  <header>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+      <div class="container">
+        <!-- Logo y toggle quedan agrupados para una mejor visualización en dispositivos móviles -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegador" aria-expanded="false">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          <div id="logo" >
+          <img src="../app/webroot/img/imagenlogo.png">
           </div>
-        </nav>
+        </div>
 
-      </div>
+        <!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
+      <div class="collapse navbar-collapse" id="navegador">
+        <ul class="nav navbar-nav">
+
+          <li><a <?php echo $this->Html->link('Inicio', '/Productos/index', array('class' => 'button')); ?></a></li>
+          <li><a <?php echo $this->Html->link('Chats', '/Chats/vista', array('class' => 'button')); ?></a></li>
+          <li class="active"><a <?php echo $this->Html->link('Mis productos', '/Productos/index', array('class' => 'button')); ?></a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <div id="nombredeusuario" class= "col-sm-1">
+               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp<?php echo $this->Html->link('Control Usuarios',array('controller'=>'users','action'=>'index')); ?>
+               </button>
+              <!-- <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>&nbsp<?php echo $this->Form->postLink('Usuario', array('controller'=>'users','action'=> 'index', $user['User']['id'])); ?></button>-->
+                <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
+        </div>
+        </ul>
+        
+        <ul class="nav navbar-nav navbar-right">
+           <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>
+        </ul> 
+           
     </div>
-
-
-
-
-   <?php //echo $this->Html->link('Desconectarse', 'controller' => 'users', 'action' => 'logout'); ?>
+  </div>
+</nav>
+  </header>
