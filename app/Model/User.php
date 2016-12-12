@@ -151,7 +151,7 @@ App::uses('AppModel', 'Model');
 			'className'=>'Producto',
 			'foreignKey'=> 'user_id',
 			'conditions'=>'',
-			'depend' => true
+			'depend' => true //elimina todos los productos relacionados con el usuario si lo llegamos a eliminar
 			)
 	);
 
