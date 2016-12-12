@@ -1,52 +1,9 @@
-<?php
-    echo $this->Html->meta('icon');
-
-    echo $this->Html->css(array('bootstrap.min','bootstrap-theme.min'));
-    echo $this->Html->css('traepaka.css'); 
-    
-    echo $this->Html->script(array('jquery','bootstrap.min'));
-
-    echo $this->fetch('meta');
-    echo $this->fetch('css');
-    echo $this->fetch('script');
+  <?php 
+                        
+            echo $this->element('navbar-1');         
+           
   ?>
-<!doctype html>
-<html>
-<head>
-</head>
 
-<body>
-  <header>
-    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-      <div class="container">
-        <!-- Logo y toggle quedan agrupados para una mejor visualización en dispositivos móviles -->
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navegador" aria-expanded="false">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-          <div id="logo" >
-          <img src="/ET2_Traepaka/app/webroot/img/imagenlogo.png">
-          </div>
-        </div>
-
-        <!-- Agrupa los enlaces de navegación, formularios y otros contenidos para toggle -->
-      <div class="collapse navbar-collapse" id="navegador">
-        <ul class="nav navbar-nav">
-
-          <li class="active"><a <?php echo $this->Html->link('Inicio', '/Posts/view', array('class' => 'button')); ?></a></li>
-          <li><a <?php echo $this->Html->link('Chats', '/Chats/vista', array('class' => 'button')); ?></a></li>
-          <li><a <?php echo $this->Html->link('Productos', '/Productos/index', array('class' => 'button')); ?></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-           <button type="submit" class="iniciosesion"><?php echo $this->Html->link('Iniciar Sesión',array('controller'=>'users','action'=>'login')); ?></button>
-   		  </ul>      
-    </div>
-  </div>
-</nav>
-  </header>
 
   <section>
     <div id="cuadroscentro" type="submit" class="row">
