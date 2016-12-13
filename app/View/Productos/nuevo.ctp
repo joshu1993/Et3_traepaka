@@ -10,7 +10,7 @@
 <div class="user form">
 
 
-<?php echo $this->Form->create('Producto', array('enctype'=>'multipart/form-data')); ?>
+<?php echo $this->Form->create('Producto', array('type'=>'file')); ?>
     <fieldset>
     <legend><?php echo ('Crear Producto'); ?></legend>
     <?php
@@ -19,7 +19,8 @@
 		echo $this->Form->input('description', array('rows'=>3));
 		echo $this->Form->input('place');
         echo $this->Form->input('price');
-        echo $this->Form->input('upload', array('type' => 'file', 'label' => 'Imagen'));
+        echo $this->Form->input('foto', array('type'=>'file', 'label' => 'Foto'));
+        echo $this->Form->input('foto_dir', array('type'=>'hidden'));
 		echo $this->Form->input('category_id', array(
             'options' => array( 'Casa y Jardín' =>'Casa y Jardin', 'Caza y Pesca' => 'Caza y Pesca', 'Deportes' =>'Deportes', 'Mobiliario' => 'Mobiliario','Moda' => 'Moda', 'Motor' =>'Motor', 'Tecnologia' =>'Tecnologia', 'Otros' =>'Otros')));
         echo $this->Form->input('user_id');

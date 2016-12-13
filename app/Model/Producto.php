@@ -5,7 +5,7 @@ App::uses('AppModel', 'Model');
 
 class Producto extends AppModel
  {
- 	/*
+ 	
  
     public $actsAs = array(
         'Upload.Upload' => array(
@@ -22,7 +22,7 @@ class Producto extends AppModel
                 'deleteOnUpdate' => true,
                 'deleteFolderOnDelete' => true
                 
-            ) *//*, Para subir más archivos misma operación: Despues de la ,'foto' => array(
+            ) /*, Para subir más archivos misma operación: Despues de la ,'foto' => array(
                 'fields' => array(
                     'dir' => 'foto_dir'
                 ),  
@@ -34,9 +34,9 @@ class Producto extends AppModel
                 ),
                 'deleteOnUpdate' => true,
                 'deleteFolderOnDelete' => true*/
-/*
+
         )
-    );*/
+    );
 		
 	
  

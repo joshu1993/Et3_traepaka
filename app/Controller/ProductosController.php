@@ -40,7 +40,7 @@ class ProductosController extends AppController
 	}
 
 */
-	/*
+	
 		public function nuevo() {
 			if($this->request->is('post')) {
 				$this->Producto->create();
@@ -51,46 +51,39 @@ class ProductosController extends AppController
 				$this->Flash->error('EL producto no se ha podido añadir');	
 				$this->redirect($this->referer());			
 			}
-		}*/
-
-		 public function nuevo() {
-            if ($this->request->is('post')) {
-                $this->Product->create();
-                if ($this->Product->save($this->request->data)) {
-                    $this->Session->setFlash(__('El producto ha sido añadido'));
-                    return $this->redirect(array('action' => 'index'));
-                } else {
-                    $this->Session->setFlash(__('El producto no se ha podido añadir'));
-                }
-                if(!empty($this->data))
-                {
-                    //Check if image has been uploaded
-                    if(!empty($this->data['products']['upload']['name']))
-                    {
-                        $file = $this->data['products']['upload']; //put the data into a var for easy use
-
-                        $ext = substr(strtolower(strrchr($file['name'], '.')), 1); //get the extension
-                        $arr_ext = array('jpg', 'jpeg', 'gif'); //set allowed extensions
-
-                        //only process if the extension is valid
-                        if(in_array($ext, $arr_ext))
-                        {
-                            //do the actual uploading of the file. First arg is the tmp name, second arg is
-                            //where we are putting it
-                            move_uploaded_file($file['tmp_name'], WWW_ROOT . '../app/webroot/img/' . $file['name']);
-
-                            //prepare the filename for database entry
-                            $this->data['products']['product_image'] = $file['name'];
-                        }
-                    }
-
-                    //now do the save
-                    $this->products->save($this->data) ;
-                }
+		}
+/*
+		 public function nuevo()
+    {
+        $producto = $this->Productos->newEntity();
+        if ($this->request->is('post'))
+        {
+            $file = $this->request->data['upload'];
+            $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
+            $allowedExtensions = array('jpg', 'jpeg', 'png');
+            $hashName = time() . "_" . rand(000000, 999999);
+            $producto = $this->Productos->patchEntity($producto, $this->request->data);
+            if (in_array($extension, $allowedExtensions)) {
+                //prepare the filename for database entry
+                $imageFileName = $hashName . '.' . $extension;
+                //do the actual uploading of the file. First arg is the tmp name, second arg is
+                //where we are putting it
+                move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/Productos/' . $imageFileName);
+                $producto->image = $imageFileName;
             }
-
+            $producto->user_id = $this->Auth->user('id');
+            if ($this->Productos->save($producto)) {
+                $this->Flash->success(__('The product has been saved.'));
+                return $this->redirect(['action' => 'index']);
+            } else {
+                $this->Flash->error(__('The product could not be saved. Please, try again.'));
+            }
         }
-	
+        $users = $this->Productos->Users->find('list', ['limit' => 200]);
+        $this->set(compact('producto', 'users'));
+        $this->set('_serialize', ['product']);
+    }
+*/
 	
 	public function ver($id= Null){
 		
