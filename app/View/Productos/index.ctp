@@ -30,7 +30,7 @@
               <h3><?php echo $producto['Producto']['description']; ?></h3>
             <div id="botones" class="col-sm-6" >
               <button type="submit" class="verdetalles"><?php echo $this->Form->postLink('Detalles', array('action'=> 'ver', $producto['Producto']['id'])); ?></button>
-
+              <button type="submit" class="loquiero"><?php echo $this->Form->postLink('Lo quiero!', array('action'=> 'chat', $producto['Producto']['id'])); ?></button>
             </div>
           </div>
 		    </div>
@@ -73,10 +73,12 @@
     -->
   </section>
   
-  
-    <footer>
-     <div class="panel-footer">Copyright &copy; 2016 ·Joshua y Ramón· Todos los derechos reservados.</div>
-  </footer>
+  <?php 
+                        
+            echo $this->element('footer');         
+           
+  ?>
+    
   
 <script src="js/jquery.js" ></script>
 <script src="js/bootstrap.js" ></script>

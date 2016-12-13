@@ -76,15 +76,16 @@
     </div>
     -->
   </section>
-  
-  
-    <footer>
-     <div class="panel-footer">Copyright &copy; 2016 ·Joshua y Ramón· Todos los derechos reservados.</div>
-  </footer>
+
   
 <script src="js/jquery.js" ></script>
 <script src="js/bootstrap.js" ></script>
 </body>
 </html>
 
+<?php 
+                        
+            echo $this->element('footer');         
+           
+?>
  

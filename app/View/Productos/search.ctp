@@ -102,3 +102,9 @@
       </ul>
     </nav>
   </div>
+
+  <?php 
+                        
+            echo $this->element('footer');         
+           
+?>
