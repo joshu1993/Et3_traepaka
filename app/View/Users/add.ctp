@@ -30,15 +30,10 @@ if($this->Session->check('Auth.User')){
 echo $this->Html->link( "Volver a la lista de usuarios",   array('controller'=>'users','action'=>'index')); 
 /*echo $this->Html->link( "Logout",   array('action'=>'logout')); */
 }else{
-echo $this->Html->link( "Volver a inicio",   array('controller'=>'posts','action'=>'view')); 
+echo $this->Html->link( "Volver a inicio",   array('controller'=>'productos','action'=>'index')); 
 }
 ?>
 
 </div>
 </body>
 
-<?php 
-                        
-            echo $this->element('footer');         
-           
-?>

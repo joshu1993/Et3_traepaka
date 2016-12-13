@@ -50,9 +50,9 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `moddate` TIMESTAMP,
   `place` VARCHAR(20) NOT NULL,
   `price` INT (9) NOT NULL,
+  `foto` VARCHAR(255) DEFAULT NULL,
+  `foto_dir` VARCHAR(255) DEFAULT NULL,
   `category` ENUM ('Casa y Jardin', 'Caza y Pesca', 'Deportes', 'Mobiliario', 'Moda', 'Motor', 'Tecnologia', 'Otros'),
-  `id_foto` VARCHAR(15) DEFAULT NULL,
-  `dir` VARCHAR(250) DEFAULT NULL,
   `created` DATETIME,
   `modified` DATETIME,
   `user_id` INT UNSIGNED,
@@ -157,7 +157,7 @@ INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`t
 -- INSERTS `PRODUCTS`
 -- -----------------------------------------------------
 
-INSERT INTO `productos` (`id`, `name`, `description`, `moddate`,`place`, `price`, `category`, `user_id`,`created`,`modified`) VALUES 
+INSERT INTO `productos` (`id`, `name`, `description`, `moddate`,`place`, `price`,`foto`, `foto_dir`, `category`, `user_id`,`created`,`modified`) VALUES 
 (NULL, 'Futbolin Presas', 'Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.', CURRENT_TIMESTAMP, 'Madrid', 650, 'Casa y Jardin', 1,NOW(),NOW()), 
 (NULL, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', CURRENT_TIMESTAMP, 'Santander', 550, 'Tecnologia', NULL,NOW(),NOW()), 
 (NULL, 'Moto Ducati', 'Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso, solo tiene 15.738kms. Revisiones anuales hechas.', CURRENT_TIMESTAMP, 'Burgos', 4600, 'Motor', 1,NOW(),NOW()), 
