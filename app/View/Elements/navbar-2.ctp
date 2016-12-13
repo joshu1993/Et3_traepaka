@@ -42,11 +42,9 @@
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
                <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp <?php 
-                    if (isset($current_user)) {                
+                                 
                         echo $user['User']['username']; 
-                    } else {                
-                        echo $user['User']['id']; 
-                    } 
+                  
                ?>
                </button>
               <!-- <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>&nbsp<?php echo $this->Form->postLink('Usuario', array('controller'=>'users','action'=> 'index', $user['User']['id'])); ?></button>-->
