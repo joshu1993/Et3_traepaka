@@ -191,9 +191,3 @@
 <script src="js/bootstrap.js" ></script>
 </body>
 </html>
-
-<?php 
-                        
-            echo $this->element('footer');         
-           
-?>

@@ -73,13 +73,6 @@
     -->
   </section>
   
-  <?php 
-                        
-            echo $this->element('footer');         
-           
-  ?>
-    
-  
 <script src="js/jquery.js" ></script>
 <script src="js/bootstrap.js" ></script>
 </body>

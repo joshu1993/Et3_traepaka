@@ -21,9 +21,3 @@
 	echo $this->Html->link('Volver al inicio',array('controller'=>'posts','action'=>'view'));
 ?>
 </div>
-
- <?php 
-                        
-            echo $this->element('footer');         
-           
-  ?>

@@ -14,10 +14,11 @@
 </div>
  <section>
      <div class="user form">
-    <?php foreach($productos as $producto): ?>
+    
       <?php if(empty($user['Producto'])): ?>
       <p> No tiene productos asociados </p>
       <?php endif; ?> 
+    <?php foreach($user['Producto'] as $us): ?>
         <div id="cuadroproductos" type="submit" class="row">
           <div id="cuadroanuncio" class= "col-sm-4">
             <div id="imagenproducto">
@@ -82,4 +83,3 @@
 <script src="js/bootstrap.js" ></script>
 </body>
 </html>
-

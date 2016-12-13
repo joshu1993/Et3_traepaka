@@ -20,7 +20,8 @@
         echo $this->Form->input('dir', array('type' => 'hidden'));
 		echo $this->Form->input('place');
         echo $this->Form->input('price');
-		echo $this->Form->input('category_id');
+		echo $this->Form->input('category_id', array(
+            'options' => array( 'Casa y Jardín' =>'Casa y Jardin', 'Caza y Pesca' => 'Caza y Pesca', 'Deportes' =>'Deportes', 'Mobiliario' => 'Mobiliario','Moda' => 'Moda', 'Motor' =>'Motor', 'Tecnologia' =>'Tecnologia', 'Otros' =>'Otros')));
         echo $this->Form->input('user_id');
     ?>
     </fieldset>
@@ -34,7 +35,7 @@ if($this->Session->check('Auth.User')){
 echo $this->Html->link( "Volver a la lista de productos",   array('controller'=>'productos','action'=>'index')); 
 /*echo $this->Html->link( "Logout",   array('action'=>'logout')); */
 }else{
-echo $this->Html->link( "Volver a inicio",   array('controller'=>'posts','action'=>'view')); 
+echo $this->Html->link( "Volver a inicio",   array('controller'=>'productos','action'=>'index')); 
 }
 ?>
 </div>
