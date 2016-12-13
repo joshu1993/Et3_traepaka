@@ -36,3 +36,9 @@ echo $this->Html->link( "Volver a inicio",   array('controller'=>'posts','action
 
 </div>
 </body>
+
+<?php 
+                        
+            echo $this->element('footer');         
+           
+?>

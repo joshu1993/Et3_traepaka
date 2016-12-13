@@ -69,6 +69,10 @@ class ProductosController extends AppController
 			$this-> set('producto', $producto);
 		}
 
+	public function mostrar(){
+		
+			}
+
 
 	public function editar($id=null)
 	{
