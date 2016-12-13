@@ -51,6 +51,8 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `place` VARCHAR(20) NOT NULL,
   `price` INT (9) NOT NULL,
   `category` ENUM ('Casa y Jardin', 'Caza y Pesca', 'Deportes', 'Mobiliario', 'Moda', 'Motor', 'Tecnologia', 'Otros'),
+  `id_foto` VARCHAR(15) DEFAULT NULL,
+  `dir` VARCHAR(250) DEFAULT NULL,
   `created` DATETIME,
   `modified` DATETIME,
   `user_id` INT UNSIGNED,
