@@ -5,8 +5,38 @@ App::uses('AppModel', 'Model');
 
 class Producto extends AppModel
  {
+ 	/*
  
- 
+    public $actsAs = array(
+        'Upload.Upload' => array(
+            'foto' => array(
+                'fields' => array(
+                    'dir' => 'foto_dir'
+                ),  
+                'thumbnailMethod'=> 'php',              
+                'thumbnailSizes' => array(
+      				'big' => '360x200',
+                    'small' =>'150x100',
+                    'thumb' =>'80x50'
+                ),
+                'deleteOnUpdate' => true,
+                'deleteFolderOnDelete' => true
+                
+            ) *//*, Para subir más archivos misma operación: Despues de la ,'foto' => array(
+                'fields' => array(
+                    'dir' => 'foto_dir'
+                ),  
+                'thumbnailMethod'=> 'php',              
+                'thumbnailSizes' => array(
+      				'big' => '360x200',
+                    'small' =>'150x100',
+                    'thumb' =>'80x50'
+                ),
+                'deleteOnUpdate' => true,
+                'deleteFolderOnDelete' => true*/
+/*
+        )
+    );*/
 		
 	
  

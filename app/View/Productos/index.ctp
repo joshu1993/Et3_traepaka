@@ -21,7 +21,6 @@
               <img src="/ET2_Traepaka/app/webroot/img/"></img>
             </div>
             <div id="nombreProducto" >
-
               <h1><?php echo $producto['Producto']['name']; ?></h1>
               <h2><?php echo $producto['Producto']['place']; ?></h2>
 

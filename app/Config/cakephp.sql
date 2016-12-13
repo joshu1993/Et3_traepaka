@@ -50,8 +50,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `moddate` TIMESTAMP,
   `place` VARCHAR(20) NOT NULL,
   `price` INT (9) NOT NULL,
-  `foto` VARCHAR(255) DEFAULT NULL,
-  `foto_dir` VARCHAR(255) DEFAULT NULL,
+  `upload` VARCHAR(255) DEFAULT NULL,
   `category` ENUM ('Casa y Jardin', 'Caza y Pesca', 'Deportes', 'Mobiliario', 'Moda', 'Motor', 'Tecnologia', 'Otros'),
   `created` DATETIME,
   `modified` DATETIME,
@@ -60,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+/*
 -- -----------------------------------------------------
 -- Table IMAGES
 -- -----------------------------------------------------
