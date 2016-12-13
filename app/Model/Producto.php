@@ -5,25 +5,13 @@ App::uses('AppModel', 'Model');
 
 class Producto extends AppModel
  {
- 	
- 	var $actsAs= array(
-
-	'Upload.Upload'=>array(
-		'foto'=>array(
-			'fields'=>array(
-				'dir'=> 'foto_dir'
-				),
-				'thumbnailMethod' => 'php';
-				'thumbnailSizes' => array(
-					'big' = '360x200',
-                    'small' =>'150x120',
-                    'thumb' =>'80x50'
-                ),
-               'deleteOnUpdate' => true,
-               'deleteFolderOnDelete' => true
-            )
-        )
-    );
+ /*
+    var $name = 'Image';
+    var $actsAs = array(
+        'MeioUpload' => array('filename')
+		);
+		
+	*/	
  
 	public $belongsTo = array(
 		'User'=>array(
@@ -73,8 +61,6 @@ class Producto extends AppModel
                     'allowEmpty' => false
                     ))
 	);
-
-	
 
 }
 ?>

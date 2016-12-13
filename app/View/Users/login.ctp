@@ -18,7 +18,12 @@
 
 <div class="redireccion">
 <?php
-	echo $this->Html->link('Volver al inicio',array('controller'=>'productos','action'=>'index'));
+	echo $this->Html->link('Volver al inicio',array('controller'=>'posts','action'=>'view'));
 ?>
 </div>
 
+ <?php 
+                        
+            echo $this->element('footer');         
+           
+  ?>

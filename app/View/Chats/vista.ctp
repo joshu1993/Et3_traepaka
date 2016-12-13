@@ -192,3 +192,8 @@
 </body>
 </html>
 
+<?php 
+                        
+            echo $this->element('footer');         
+           
+?>

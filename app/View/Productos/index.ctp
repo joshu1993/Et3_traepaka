@@ -1,24 +1,24 @@
  <?php 
                         
-            echo $this->element('navbar-2');         
+            echo $this->element('navbar-1');         
            
   ?>
 
-
 <div class="redireccion">
   
+  <!--<button type="submit" class="verdetalles"><?php echo $this->Form->Link('Añadir nuevo producto', array('action'=> 'nuevo'), array('confirm' => 'Añadir producto ')); ?></button>-->
     <?php
     echo $this->Html->link('Añadir nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
     ?>
 
 </div>
  <section>
-  <div class="user form">
+     <div class="user form">
 	  <?php foreach($productos as $producto): ?>
         <div id="cuadroproductos" type="submit" class="row">
           <div id="cuadroanuncio" class= "col-sm-4">
             <div id="imagenproducto">
-              <img src="../app/webroot/img/"></img>
+              <img src="/ET2_Traepaka/app/webroot/img/"></img>
             </div>
             <div id="nombreProducto" >
 
@@ -36,7 +36,7 @@
 		    </div>
 		<?php endforeach; ?>
      
-  </div>
+    </div>
   </section>
 </div>
 
@@ -73,7 +73,12 @@
     -->
   </section>
   
-
+  <?php 
+                        
+            echo $this->element('footer');         
+           
+  ?>
+    
   
 <script src="js/jquery.js" ></script>
 <script src="js/bootstrap.js" ></script>
