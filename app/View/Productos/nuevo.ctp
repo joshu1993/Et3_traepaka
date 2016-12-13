@@ -16,12 +16,12 @@
     <?php
 		echo $this->Form->input('name');
 		echo $this->Form->input('description', array('rows'=>3));
-		echo $this->Form->input('imagen', array('type' => 'file'));
-		echo $this->Form->input('dir', array('type' => 'hidden'));
+        echo $this->Form->input('id_foto', array('type' => 'file', 'label' => 'Foto'));
+        echo $this->Form->input('dir', array('type' => 'hidden'));
 		echo $this->Form->input('place');
-    echo $this->Form->input('price');
+        echo $this->Form->input('price');
 		echo $this->Form->input('category_id');
-    echo $this->Form->input('user_id');
+        echo $this->Form->input('user_id');
     ?>
     </fieldset>
 <?php echo $this->Form->end('Publicar producto'); ?>
@@ -41,8 +41,3 @@ echo $this->Html->link( "Volver a inicio",   array('controller'=>'posts','action
 
 </body>
 
-<?php 
-                        
-            echo $this->element('footer');         
-           
-?>

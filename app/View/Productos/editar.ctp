@@ -30,12 +30,6 @@
 </div>
 </body>
 
-<?php 
-                        
-            echo $this->element('footer');         
-           
-?>
-
 
 
 
