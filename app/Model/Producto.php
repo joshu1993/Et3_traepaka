@@ -61,11 +61,16 @@ class Producto extends AppModel
 			),
 
 		'description'=> array(
-				'notEmpty' => array(
-				'rule' => array('minLength', '20'),
-                'message'=> 'La descripción debe tener como mínimo 20 caracteres' 
-				)
-			),
+				
+				'notBlank' => array(
+				'rule'=> 'notBlank'
+				),
+
+				'between' => array(
+                'rule' => array('between', 20, 250),
+                'message' => 'Entre 20 y 250 caracteres'
+            )
+        ),
 
 		'place'=> array(
 				'notBlank' => array(
