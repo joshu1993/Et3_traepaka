@@ -60,27 +60,8 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
 /*
--- -----------------------------------------------------
--- Table IMAGES
--- -----------------------------------------------------
-
-DROP TABLE IF EXISTS `images`;
-
-CREATE TABLE IF NOT EXISTS `images` (
-   `id` int(8) unsigned NOT NULL auto_increment,
-	 `filename` varchar(255) DEFAULT NULL,
-   `dir` varchar(255) DEFAULT NULL,
-   `mimetype` varchar(255) NULL,
-	 `filesize` int(11) unsigned DEFAULT NULL,
-   `created` datetime DEFAULT NULL,
-   `modified` datetime DEFAULT NULL,
-    PRIMARY KEY  (`id`)
-  ) 
-  ENGINE=InnoDB  DEFAULT CHARSET=utf8;
-
-/*CREATE INDEX `fk_Producto_Usuario1_idx` ON `products` (`User_id` ASC);*/
-
 -- -----------------------------------------------------
 -- Table CHATS
 -- -----------------------------------------------------
@@ -102,21 +83,6 @@ ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*CREATE INDEX `fk_Chat_Usuario1_idx` ON `chats` (`user_id` ASC);*/
 
--- -----------------------------------------------------
--- Table `responses_chats`
--- -----------------------------------------------------
-/*
-
-DROP TABLE IF EXISTS `responses_chats`;
-
-CREATE TABLE IF NOT EXISTS `responses_chats` (
-  id INT UNSIGNED AUTO_INCREMENT,
-  user_id INTEGER UNSIGNED,
-  chat_id INTEGER UNSIGNED,
-  PRIMARY KEY(`id`)
-) 
-ENGINE=InnoDB DEFAULT CHARSET=utf8;
-*/
 ALTER TABLE productos
   ADD FOREIGN KEY (user_id)
   REFERENCES users (id)
@@ -158,13 +124,13 @@ INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`t
 -- INSERTS `PRODUCTS`
 -- -----------------------------------------------------
 
-INSERT INTO `productos` (`id`, `name`, `description`, `moddate`,`place`, `price`, `foto`, `foto_dir`, `category`, `user_id`,`created`,`modified`) VALUES 
-(NULL, 'Futbolin Presas', 'Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.', CURRENT_TIMESTAMP, 'Madrid', 650, NULL, NULL, 'Casa y Jardin', 1,NOW(),NOW()), 
-(NULL, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', CURRENT_TIMESTAMP, 'Santander', 550, NULL, NULL, 'Tecnologia', NULL,NOW(),NOW()), 
-(NULL, 'Moto Ducati', 'Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso, solo tiene 15.738kms. Revisiones anuales hechas.', CURRENT_TIMESTAMP, 'Burgos', 4600, NULL, NULL, 'Motor', 1,NOW(),NOW()), 
-(NULL, 'Bolso MK', 'Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable', CURRENT_TIMESTAMP, 'Madrid', 115, NULL, NULL, 'Moda', 2,NOW(),NOW()), 
-(NULL, 'Escopeta', 'Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.', CURRENT_TIMESTAMP, 'Lugo', 350, NULL, NULL, 'Caza y Pesca', 2,NOW(),NOW()),
-(NULL, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', CURRENT_TIMESTAMP, 'Alicante', 30, NULL, NULL, 'Tecnologia', 3,NOW(),NOW());
+INSERT INTO `productos` (`id`, `name`, `description`, `moddate`, `place`, `price`, `foto`, `foto_dir`, `category`, `created`, `modified`, `user_id`) VALUES
+(1, 'Futbolín presas', 'Futbolin Presas 2000 como nuevo. Me deshago de el por falta de espacio en casa. LLeva ademas jugadores de repuesto y un pack de 20 bolas.', NULL, 'Madrid', 650, 'futbolin.jpg', '1', 'Deportes', '2016-12-14 10:45:22', '2016-12-14 10:45:22', 1),
+(2, 'Moto Ducati', 'Ducati Streetfighter 1098 absolutamente impecable. De diciembre de 2010. Con muy poco uso, solo tiene 15.738kms. Revisiones anuales hechas.', NULL, 'Burgos', 4600, 'moto.jpg', '2', 'Motor', '2016-12-14 10:46:22', '2016-12-14 10:46:22', 2),
+(3, 'Bolso MK', 'Precioso bolso Michael Kors nuevo a estrenar color violeta con tachas doradas. Precio negociable', NULL, 'Madrid', 115, 'bolso.jpg', '3', 'Moda', '2016-12-14 10:47:50', '2016-12-14 10:47:50', 3),
+(4, 'Escopeta', 'Vendo escopeta Winchester Diamond, en perfecto estado de acero y ajustes. Esta perfecta y se puede mandar al armero que quieran para comprobar. Gastos de envio incluidos.', NULL, 'Lugo', 350, 'escopeta.jpg', '4', 'Caza y Pesca', '2016-12-14 10:48:24', '2016-12-14 10:48:24', 2),
+(5, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', NULL, 'Alicante', 30, 'mando.jpg', '5', 'Tecnologia', '2016-12-14 10:48:59', '2016-12-14 10:48:59', 1),
+(6, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', NULL, 'Santander', 550, 'iphone.jpg', '6', 'Tecnologia', '2016-12-14 10:51:29', '2016-12-14 10:51:29', 1);
 
 -- -----------------------------------------------------
 -- INSERTS `CHATS`
@@ -185,23 +151,7 @@ INSERT INTO `chats` (`id`, `content`, `moddate`, `user_id`, `producto_id`) VALUE
 (NULL, 'Que te parece si..?', CURRENT_TIMESTAMP, NULL,'6');
 
 
--- -----------------------------------------------------
--- INSERTS `RESPONSES_CHATS`
--- -----------------------------------------------------
 
-INSERT INTO `responses_chats` (`id`, `user_id`, `chat_id`) VALUES 
-(NULL, NULL, '1'), 
-(NULL, NULL, '1'),
-(NULL, NULL, '3'), 
-(NULL, NULL, '4'), 
-(NULL, NULL, '5'), 
-(NULL, NULL, '6'), 
-(NULL, NULL, '7'), 
-(NULL, NULL, '7'), 
-(NULL, NULL, '9'), 
-(NULL, NULL, '10'), 
-(NULL, NULL, '11'), 
-(NULL, NULL, '12');
 
 */
 SET SQL_MODE=@OLD_SQL_MODE;
