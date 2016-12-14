@@ -9,6 +9,7 @@
     </fieldset>
 <?php echo $this->Form->end(__('Login')); ?>
 </div>
+
 <div class="redireccion">
 
 <?php
