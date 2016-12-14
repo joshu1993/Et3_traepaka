@@ -12,12 +12,13 @@
 
 <div class="user form">
 
-<p><strong>Name: </strong><?php echo $producto['Producto']['name']; ?></p>
-<p><strong>Description: </strong><?php echo $producto['Producto']['description']; ?></p>
-<p><strong>Place: </strong><?php echo $producto['Producto']['place']; ?></p>
-<p><strong>Price: </strong><?php echo $producto['Producto']['price']; ?></p>
-<p><strong>Category: </strong><?php echo $producto['Producto']['category']; ?></p>
-<p><strong>Created: </strong><?php echo $producto['Producto']['created']; ?></p>
+<p><?php echo $this -> Html -> image('../files/producto/foto/'. $producto['Producto']['foto_dir'].'/'. 'big_'.$producto['Producto']['foto']);?></p>
+<p><strong>Nombre producto: </strong><?php echo $producto['Producto']['name']; ?></p>
+<p><strong>Descripción: </strong><?php echo $producto['Producto']['description']; ?></p>
+<p><strong>Lugar: </strong><?php echo $producto['Producto']['place']; ?></p>
+<p><strong>Precio: </strong><?php echo $producto['Producto']['price']; ?>€ </p>
+<p><strong>Categoría: </strong><?php echo $producto['Producto']['category']; ?></p>
+<p><strong>Fecha de publicación: </strong><?php echo $producto['Producto']['created']; ?></p>
 
 </div>
 
