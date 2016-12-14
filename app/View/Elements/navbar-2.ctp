@@ -62,14 +62,10 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp <?php 
-                                 
-                        echo $user['User']['username']; 
-                  
+               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp <?=$user['username']
                ?>
                </button>
-              <!-- <button type="submit" class="nombreusuario"><img src="/ET2_Traepaka/app/webroot/img/logousuario.png"></img>&nbsp<?php echo $this->Form->postLink('Usuario', array('controller'=>'users','action'=> 'index', $user['User']['id'])); ?></button>-->
-                <!--<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>-->
+             
         </div>
         </ul>
 

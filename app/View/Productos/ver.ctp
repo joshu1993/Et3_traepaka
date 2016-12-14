@@ -1,6 +1,6 @@
  <?php 
                         
-            echo $this->element('navbar-2');         
+            echo $this->element('navbar-1');         
            
   ?>
 
