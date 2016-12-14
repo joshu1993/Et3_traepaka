@@ -1,8 +1,10 @@
-  <?php 
-                        
-            echo $this->element('navbar-3');         
-           
-  ?>
+ <?php 
+      if (isset($current_user)) {                
+          echo $this->element('navbar-3'); 
+        } else {                
+          echo $this->element('navbar-1'); 
+        } 
+    ?>
 
     <script src="https://use.fontawesome.com/45e03a14ce.js"></script>
         <div class="main_section">

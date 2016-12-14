@@ -36,7 +36,7 @@
         <ul class="nav navbar-nav">
 
           <li><a <?php echo $this->Html->link('Inicio', '/Productos/index', array('class' => 'button')); ?></a></li>
-          <li class="active"><a <?php echo $this->Html->link('Chats', '/Chats/vista', array('class' => 'button')); ?></a></li>
+          <li class="active"><a <?php echo $this->Html->link('Chats', '/Chats/index', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Mis productos', '/Productos/mostrar', array('class' => 'button')); ?></a></li>
         </ul>
           <ul>

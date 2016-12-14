@@ -62,19 +62,4 @@ class AppController extends Controller {
         return true;
     }
 
-
-    public function Vista() {
-
-    }
-
-    public function Index() {
-
-    }
-
-
-
-    /*public function beforeFilter() {
-        $this->Auth->allow('login', 'view');
-       // $this->set('current_user', $this->Auth->user());
-    }*/
 }
