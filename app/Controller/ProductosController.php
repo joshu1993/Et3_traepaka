@@ -21,26 +21,6 @@ class ProductosController extends AppController
 	}
 
 	
-
-/*	
-	public function nuevo()
-	{
-		if($this->request->is('post'))
-		{
-			$this->Producto->create();
-			if($this->Producto->save($this->request->data))
-			{
-				$this->Flash->success('El producto ha sido creado');
-				return $this ->redirect(array('action'=> 'index'));
-			}
-			$this->Flash->error('No se puedo crear producto');
-		}
-		$producto= $this->Producto->Producto->find('list');
-		$this->set('producto',$producto);
-	}
-
-*/
-	
 		public function nuevo() {
 			if($this->request->is('post')) {
 				$this->Producto->create();
@@ -52,38 +32,7 @@ class ProductosController extends AppController
 				$this->redirect($this->referer());			
 			}
 		}
-/*
-		 public function nuevo()
-    {
-        $producto = $this->Productos->newEntity();
-        if ($this->request->is('post'))
-        {
-            $file = $this->request->data['upload'];
-            $extension = substr(strtolower(strrchr($file['name'], '.')), 1);
-            $allowedExtensions = array('jpg', 'jpeg', 'png');
-            $hashName = time() . "_" . rand(000000, 999999);
-            $producto = $this->Productos->patchEntity($producto, $this->request->data);
-            if (in_array($extension, $allowedExtensions)) {
-                //prepare the filename for database entry
-                $imageFileName = $hashName . '.' . $extension;
-                //do the actual uploading of the file. First arg is the tmp name, second arg is
-                //where we are putting it
-                move_uploaded_file($file['tmp_name'], WWW_ROOT . 'img/Productos/' . $imageFileName);
-                $producto->image = $imageFileName;
-            }
-            $producto->user_id = $this->Auth->user('id');
-            if ($this->Productos->save($producto)) {
-                $this->Flash->success(__('The product has been saved.'));
-                return $this->redirect(['action' => 'index']);
-            } else {
-                $this->Flash->error(__('The product could not be saved. Please, try again.'));
-            }
-        }
-        $users = $this->Productos->Users->find('list', ['limit' => 200]);
-        $this->set(compact('producto', 'users'));
-        $this->set('_serialize', ['product']);
-    }
-*/
+
 	
 	public function ver($id= Null){
 		

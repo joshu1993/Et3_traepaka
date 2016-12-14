@@ -63,7 +63,7 @@ class Producto extends AppModel
 					'message'=> 'El nombre del producto debe ser unico'
 				)
 			),
-/*
+
 		'description'=> array(
 				'notEmpty' => array(
 				'rule' => array('minLength', '20'),
@@ -79,7 +79,7 @@ class Producto extends AppModel
 				'notEmpty' => array(
 					'rule'=> 'notEmpty'
 				)
-			),*/
+			),
 		
         'category' => array(
                     'valid' => array(

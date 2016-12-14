@@ -19,7 +19,8 @@
           <div id="cuadroanuncio" class= "col-sm-4">
             <div id="nombreProducto" >
 
-              <h1><?php echo $this -> Html -> image('../files/producto/foto'. $producto['Producto']['id'].'/'. 'thumb_'.$producto['Producto']['foto']);?></h1>
+              <h1><?php echo $this -> Html -> image('../files/producto/foto'. $producto['Producto']['foto_dir'].'/'. 'thumb_'.$producto['Producto']['foto']);?></h1>
+
               <h1><?php echo $producto['Producto']['name']; ?></h1>
               <h2><?php echo $producto['Producto']['place']; ?></h2>
 
