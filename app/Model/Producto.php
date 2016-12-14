@@ -57,10 +57,6 @@ class Producto extends AppModel
 		'name'=> array(
 				'notEmpty' => array(
 					'rule'=> 'notEmpty'
-				),
-				'unique'=> array(
-					'rule' => 'isUnique',
-					'message'=> 'El nombre del producto debe ser unico'
 				)
 			),
 
@@ -70,14 +66,16 @@ class Producto extends AppModel
                 'message'=> 'La descripción debe tener como mínimo 20 caracteres' 
 				)
 			),
+
 		'place'=> array(
-				'notEmpty' => array(
-					'rule'=> 'notEmpty'
+				'notBlank' => array(
+					'rule'=> 'notBlank'
 				)
 			),
+
 		'price'=> array(
-				'notEmpty' => array(
-					'rule'=> 'notEmpty'
+				'notBlank' => array(
+					'rule'=> 'notBlank'
 				)
 			),
 		
