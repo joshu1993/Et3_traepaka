@@ -52,7 +52,7 @@ class AppController extends Controller {
     // only allow the login controllers only
     public function beforeFilter() {
         $this->Auth->allow('index','login');
-        $this->set('user', $this->Auth->user());
+        $this->set('current_user', $this->Auth->user());
         //var_dump($this->Auth->user());
     }
     

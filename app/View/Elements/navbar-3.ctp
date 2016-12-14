@@ -62,7 +62,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp<?= $user['username'] ?>
+               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp<?= $current_user['username'] ?>
                </button>
             
         </div>
