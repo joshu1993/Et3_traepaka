@@ -51,6 +51,11 @@ class ProductosController extends AppController
 		}
 
 	public function mostrar(){
+
+		$this->set('productos', $this->Producto->find('all', array(
+			"conditions" => array(
+				"user_id" => $this->Auth->user()["id"]))
+		));
 		
 			}
 

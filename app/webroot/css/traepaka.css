@@ -199,6 +199,14 @@ margin-top:-68px;
   width:310px;
 }	
 
+#botones1{
+  display: inline;
+  float:left;
+  padding-top: 20px;
+  height:30px;
+  width:350px;
+} 
+
 .verdetalles{
   color: #f9f9f9;
   font-weight: bold;
@@ -206,6 +214,7 @@ margin-top:-68px;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
+  margin-left: 5px;
   font-size: 18px;
   line-height: 1.42857143;
   text-align: center;
@@ -230,6 +239,7 @@ margin-top:-68px;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
+  margin-left:10px;
   font-size: 18px;
   line-height: 1.42857143;
   text-align: center;
@@ -254,6 +264,7 @@ margin-top:-68px;
   display: inline-block;
   padding: 6px 12px;
   margin-bottom: 0;
+  margin-left: 10px;
   font-size: 18px;
   line-height: 1.42857143;
   text-align: center;
