@@ -1,8 +1,11 @@
- <?php 
-                        
-            echo $this->element('navbar-1');         
-           
-  ?>
+  <?php 
+      if (isset($current_user)) {                
+          echo $this->element('navbar-2'); 
+        } else {                
+          echo $this->element('navbar-1'); 
+        } 
+    ?>
+
 
 <div class="user form">
 

@@ -130,26 +130,60 @@ class ProductosController extends AppController
 		}
 	}
 
-	public function search() {
-			$datos = $this->request->query['search'];
-
-			$this->Paginator->settings = array(
-				'limit' => 5,
-				'order' => array(
-					'Producto.initDate' => 'desc'),
-					'conditions'=>array( 'OR' => array(
-					array('Producto.name LIKE'=>'%'.$datos.'%'),
-					array('Producto.description LIKE'=>'%'.$datos.'%'),)
-				));
-
-			$data = $this->Paginator->paginate('Post');
-
-			foreach ($data as $key => $row) {
-				$sql = "Select * from productos where id = ".$row["Producto"]["id"]."";
+	public function searchjson()
+	{
+		$term = null;
+		if(!empty($this->request->query['term']))
+		{
+			$term = $this->request->query['term'];
+			$terms = explode(' ', trim($term));
+			$terms = array_diff($terms, array(''));
+			foreach($terms as $term)
+			{
+				$conditions[] = array('Producto.name LIKE' => '%' . $term . '%');
 			}
-
-			$this->set('search', $data);
+			
+			$productos = $this->Producto->find('all', array('recursive' => -1, 'fields' => array('Producto.id', 'Producto.name', 'Producto.foto', 'Producto.foto_dir'), 'conditions' => $conditions, 'limit' => 20));
 		}
+		echo json_encode($productos);
+		$this->autoRender = false;
+	}
+	
+	public function search()
+	{
+		$search = null;
+		if(!empty($this->request->query['search']))
+		{
+			$search = $this->request->query['search'];
+			$search = preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $search);
+			$terms = explode(' ', trim($search));
+			$terms = array_diff($terms, array(''));
+			
+			foreach($terms as $term)
+			{
+				$terms1[] = preg_replace('/[^a-zA-ZñÑáéíóúÁÉÍÓÚ0-9 ]/', '', $term);
+				$conditions[] = array('Producto.name LIKE' => '%' . $term . '%');
+			}
+			$productos = $this->Producto->find('all', array('recursive' => -1, 'conditions' => $conditions, 'limit' => 200));
+			if(count($productos) == 1)
+			{
+				return $this->redirect(array('controller' => 'productos', 'action' => 'ver', $productos[0]['Producto']['id']));
+			}
+			$terms1 = array_diff($terms1, array(''));
+			$this->set(compact('productos', 'terms1'));
+		}
+		$this->set(compact('search'));
+		
+		if($this->request->is('ajax'))
+		{
+			$this->layout = false;
+			$this->set('ajax', 1);
+		}
+		else
+		{
+			$this->set('ajax', 0);
+		}
+	}
           
 		private function isValidUser($id, $user_id) {
 			$ownerProducto = $this->Producto->findById($id);
