@@ -46,12 +46,11 @@
           <div class="form-group"> 
             <?php echo $this->Form->create('Productos', array('controller' => 'productos', 'action' => 'search', 'type' => 'get' )); ?>
             <div class="input-group">
-              <!--<input type="text" class="form-control" placeholder="Buscar...">-->
+           
               <?php 
-                echo $this->Form->input('search', array('class' => 'form-control', 'placeholder' => __('Buscar producto...'), 'div' => false, 'type' => 'text', 'label' => false));
+                echo $this->Form->input('search', array('label' => false, 'div' => false, 'id' => 'buscador', 'class' => 'form-control buscador', 'autocomplete' => 'off', 'placeholder' => 'Buscar producto...'));
               ?>
               <span class="input-group-btn">
-                <!--<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>-->
                 <?php 
                   echo $this->Form->button("<span class='glyphicon glyphicon-search'></span>", array('type' => 'submit', 'div' => false, 'class' => 'btn btn-default')); 
                 ?>

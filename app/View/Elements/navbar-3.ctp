@@ -39,17 +39,16 @@
           <li class="active"><a <?php echo $this->Html->link('Chats', '/Chats/index', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Mis productos', '/Productos/mostrar', array('class' => 'button')); ?></a></li>
         </ul>
-          <ul>
+        <ul>
         <div class="navbar-form navbar-left">
           <div class="form-group"> 
             <?php echo $this->Form->create('Productos', array('controller' => 'productos', 'action' => 'search', 'type' => 'get' )); ?>
             <div class="input-group">
-              <!--<input type="text" class="form-control" placeholder="Buscar...">-->
+           
               <?php 
-                echo $this->Form->input('search', array('class' => 'form-control', 'placeholder' => __('Buscar producto...'), 'div' => false, 'type' => 'text', 'label' => false));
+                echo $this->Form->input('search', array('label' => false, 'div' => false, 'id' => 'buscador', 'class' => 'form-control buscador', 'autocomplete' => 'off', 'placeholder' => 'Buscar producto...'));
               ?>
               <span class="input-group-btn">
-                <!--<button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>-->
                 <?php 
                   echo $this->Form->button("<span class='glyphicon glyphicon-search'></span>", array('type' => 'submit', 'div' => false, 'class' => 'btn btn-default')); 
                 ?>
@@ -58,7 +57,7 @@
             <?php echo $this->Form->end(); ?>
           </div>
         </div>
- 
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
