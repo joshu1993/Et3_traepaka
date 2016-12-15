@@ -100,8 +100,8 @@ App::uses('AppController', 'Controller');
 			if($this->request->is('post')) {
 				$this->User->create();
 				if($this->User->save($this->request->data)) {
-					$this->Flash->success('EL usuario ha sido creado');
-					 return $this->redirect(array('action'=>'index'));		
+					$this->Flash->success('El usuario ha sido creado');
+					 return $this->redirect(array('controller' => 'productos', 'action' => 'index'));		
 				}
 				$this->Flash->error('EL usuario no se ha podido crear');	
 				$this->redirect($this->referer());			

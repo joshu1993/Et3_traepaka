@@ -67,8 +67,8 @@ class Producto extends AppModel
 				),
 
 				'between' => array(
-                'rule' => array('between', 20, 250),
-                'message' => 'Entre 20 y 250 caracteres'
+                'rule' => array('between', 5, 250),
+                'message' => 'Entre 5 y 250 caracteres'
             )
         ),
 

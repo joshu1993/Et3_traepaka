@@ -25,13 +25,14 @@ class ProductosController extends AppController
 			if($this->request->is('post')) {
 				$this->Producto->create();
 				if($this->Producto->save($this->request->data)) {
-					$this->Flash->success('EL producto ha sido añadido');
-					 return $this->redirect(array('action'=>'index'));		
+					$this->Flash->success('El producto ha sido creado');
+					 return $this->redirect(array('controller' => 'productos', 'action' => 'index'));		
 				}
-				$this->Flash->error('EL producto no se ha podido añadir');	
+				$this->Flash->error('El producto no se ha podido crear');	
 				$this->redirect($this->referer());			
 			}
 		}
+
 
 	
 	public function ver($id= Null){
