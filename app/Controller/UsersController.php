@@ -15,17 +15,16 @@ App::uses('AppController', 'Controller');
 	
    		public function beforeFilter() {
        		parent::beforeFilter();
-        	$this->Auth->allow('view','login','add'); 
+        	$this->Auth->allow('login','add'); 
     	}
 	
 		public function login() {
 		
-			//if already logged-in, redirect
+			// Si ya está logueado lo redirige
 			if($this->Session->check('Auth.User')){
 				$this->redirect(array('action' => 'index'));		
 			}
-		
-			// if we get the post information, try to authenticate
+
 			if ($this->request->is('post')) {
 				if ($this->Auth->login()) {
 					$this->Session->setFlash(__('Bienvenido, '. $this->Auth->user('username')));

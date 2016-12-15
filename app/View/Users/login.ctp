@@ -1,4 +1,20 @@
-<div class="users form">
+<form>
+<div class="registro">
+
+<?php
+ 	echo $this->Html->link( "Registrarse",   array('action'=>'add') ); 
+?>
+
+</div>
+
+<div class="inicio">
+<?php
+	echo $this->Html->link('Volver al inicio',array('controller'=>'productos','action'=>'index'));
+?>
+</div>
+</form>
+
+<div class="user form">
 <?php echo $this->Session->flash('auth'); ?>
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
@@ -10,15 +26,4 @@
 <?php echo $this->Form->end(__('Login')); ?>
 </div>
 
-<div class="redireccion">
 
-<?php
- 	echo $this->Html->link( "Registrarse",   array('action'=>'add') ); 
-?>
-</div>
-
-<div class="redireccion">
-<?php
-	echo $this->Html->link('Volver al inicio',array('controller'=>'productos','action'=>'index'));
-?>
-</div>

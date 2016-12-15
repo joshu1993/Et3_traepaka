@@ -23,18 +23,18 @@
         echo $this->Form->input('foto_dir', array('type'=>'hidden', 'label' => 'Foto'));
 		echo $this->Form->input('category_id', array(
             'options' => array( 'Casa y Jardín' =>'Casa y Jardin', 'Caza y Pesca' => 'Caza y Pesca', 'Deportes' =>'Deportes', 'Mobiliario' => 'Mobiliario','Moda' => 'Moda', 'Motor' =>'Motor', 'Tecnologia' =>'Tecnologia', 'Otros' =>'Otros')));
-        echo $this->Form->input('user_id');<!-- current_user-->
+        echo $this->Form->hidden('user_id', array('value' => $current_user['id']));
     ?>
     </fieldset>
 <?php echo $this->Form->end('Publicar producto'); ?>
 
 </div>
 
-<div class="redireccion">
+<div class="inicio">
 <?php 
 echo $this->Html->link( "Volver a la lista de productos",   array('controller'=>'productos','action'=>'index')); 
 ?>
 </div>
 
-</body>
+
 

@@ -9,7 +9,7 @@
 
 <div class="user form">
 
-<h1>Detalles del producto <?php echo $producto['Producto']['name']; ?></h1>
+<h1>Detalles del producto  <?php echo $producto['Producto']['name']; ?></h1>
 
 </div>
 

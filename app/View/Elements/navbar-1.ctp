@@ -37,7 +37,7 @@
       <div class="collapse navbar-collapse" id="navegador">
         <ul class="nav navbar-nav">
 
-          <li class="active"><a <?php echo $this->Html->link('Inicio', '/Productos/index', array('class' => 'button')); ?></a></li>
+          <li><a <?php echo $this->Html->link('Inicio', '/Productos/index', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link('Chats', '/Chats/index', array('class' => 'button')); ?></a></li>
           <li><a <?php echo $this->Html->link(' Mis productos', '/Productos/mostrar', array('class' => 'button')); ?></a></li>
         </ul>
@@ -68,3 +68,26 @@
   </div>
 </nav>
 </header>
+
+<section>
+    <div id="cuadroscentro" type="submit" class="row">
+      <div id="cuadroprimero" class= "col-sm-4" >
+        <div id="palabracuadro1" >
+        <h4>Compra y vende en Traepaká</h4>
+        <h5>Sé el primero en enterarte de lo que venden a tu alrededor y consigue dinero vendiendo aquello que ya no utilices. ¡Reciclar te reportará dinero!</h5>
+        </div>
+      </div>
+      <div id="cuadrosegundo" class= "col-sm-4" >
+        <div id="palabracuadro" >
+        <h4>Cómodo y sencillo</h4> 
+        </div>
+        <h5>Busca de una manera muy simple los productos que te interesan y de la misma forma anuncia los que desees vender.</h5>
+      </div>
+      <div id="cuadrotercero" class= "col-sm-4" >
+        <div id="palabracuadro" >
+        <h4> Pago seguro €€</h4>
+        </div>
+        <h5>Realiza los pagos de manera segura a través de nuestra plataforma y recibe también los cobros de las transacciones de forma protegida.</h5>
+      </div>
+    </div>
+  </section>

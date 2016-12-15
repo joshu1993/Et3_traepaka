@@ -4,10 +4,13 @@
            
   ?>
 
-<div class="user form">
+<div>
+		<?php echo $this->Html->link('Volver a la lista de usuarios',array('controller'=>'users','action'=>'index'));?>
+</div>
+
+<div>
+
 <h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>
-
-
 
 <p><strong>Username: </strong><?php echo $user['User']['username']; ?></p>
 <p><strong>Name: </strong><?php echo $user['User']['name']; ?></p>
@@ -24,7 +27,7 @@
 	
 <?php endif; ?>	
 
-<?php foreach($user['Producto'] as $us): ?>
+	<?php foreach($user['Producto'] as $us): ?>
 		
 		<p>
 			Nombre: <?php echo $us['name']; ?>
@@ -39,15 +42,9 @@
 			<br />
 		</p>
 		
-	
 	<?php endforeach; ?>
+
 </div>
 
 
-
-
-	<div class="users form">
-		<?php echo $this->Html->link('Volver a la lista de usuarios',array('controller'=>'users','action'=>'index'));?>
-	</div>
-</body>
 

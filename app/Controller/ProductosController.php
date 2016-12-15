@@ -9,7 +9,7 @@ class ProductosController extends AppController
 	public function beforeFilter() {
 	    	parent::beforeFilter();
 			
-	        $this->Auth->allow('');
+	        $this->Auth->allow('ver', 'search', 'searchjson');
 	        //$this->set('current_user', $this->Auth->user());
 			
 	    }
@@ -21,7 +21,7 @@ class ProductosController extends AppController
 	}
 
 	
-		public function nuevo() {
+	public function nuevo() {
 			if($this->request->is('post')) {
 				$this->Producto->create();
 				if($this->Producto->save($this->request->data)) {

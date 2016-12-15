@@ -1,8 +1,3 @@
- <?php 
-                        
-            echo $this->element('navbar-2');         
-           
-  ?>
   
 <!-- app/View/Users/add.ctp -->
 <div class="users form">
@@ -16,9 +11,9 @@
 		echo $this->Form->input('surname');
         echo $this->Form->input('password');
 		echo $this->Form->input('email');
-        echo $this->Form->input('tipo', array(
+       /* echo $this->Form->input('tipo', array(
             'options' => array('admin' => 'Admin', 'user' => 'User')
-        ));
+        ));*/
     ?>
     </fieldset>
 <?php echo $this->Form->end('Añadir usuario'); ?>

@@ -7,13 +7,6 @@
     ?>
 
 
-<div class="redireccion">
-  
-    <?php
-    echo $this->Html->link('Añadir nuevo producto', array ('controller'=>'productos','action'=>'nuevo'));
-    ?>
-
-</div>
  
 <div>
 
