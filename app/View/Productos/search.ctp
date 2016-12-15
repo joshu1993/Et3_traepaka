@@ -1,17 +1,19 @@
+<div class="user form">
+
 <?php if($ajax != 1): ?>
 
     <h1>Buscar producto</h1>
-    <br>
+ 	<br>
     <div class="row">
         <?php echo $this->Form->create('Producto', array('type' => 'GET')); ?>
         
-        <div class="col-sm-4">
+        <div class="col-sm-2">
             <?php echo $this->Form->input('search', array('label' => false, 'div' => false, 'class' => 'form-control', 'autocomplet' => 'off', 'value' => $search)); ?>
         </div>
         
   
         
-        <div class="col-sm-3">
+        <div class="col-sm-2">
            <?php echo $this->Form->button('Buscar', array('div' => false, 'class' => 'btn btn-primary')); ?>
         </div>
         
@@ -20,6 +22,7 @@
     </div>
 
     <br><br>
+    
 <?php endif; ?>
 
 <?php if(!empty($search)): ?>
@@ -44,8 +47,9 @@
     
     <?php else: ?>
     
-    <h3>No se encontró el producto que busca </h3>
+    <h2> No se encontró el producto que busca </h2>
     
     <?php endif; ?>
 
 <?php endif; ?>
+</div>
