@@ -38,7 +38,7 @@
                 <br>
                 <?php echo $this->Html->link($producto['Producto']['name'], array('action' => 'ver', $producto['Producto']['id'])); ?>
                 <br>
-                $ <?php echo $producto['Producto']['price'] ;?>
+                 <?php echo $producto['Producto']['price'] ;?>€
                 <br><br>
             </div>
         <?php endforeach; ?>
