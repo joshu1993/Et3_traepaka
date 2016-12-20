@@ -12,8 +12,8 @@
 
 .container{
 
-	margin-left: 150
-  px;
+	padding-right: 0px;
+  padding-left: 0px;
 
 }
 .btn-default{
@@ -667,6 +667,14 @@ h5 {
 }
 
 .chat_area {
+  float: left;
+  height: 300px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+}
+.chat_container {
+
   float: left;
   height: 300px;
   overflow-x: hidden;
