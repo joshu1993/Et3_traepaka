@@ -22,7 +22,7 @@
                <ul class="list-unstyled">
                   <li class="left clearfix">
                      <span class="chat-img pull-left">
-                     <img src="/ET2_Traepaka/app/webroot/img/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
+                     <img src="../app/webroot/img/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
                      </span>
                      <div class="chat-body clearfix">
                         <div class="header_sec">
@@ -123,8 +123,9 @@
                      </div>
                   </li>                 
                </ul>
-            </div></div>
-         </div>
+            </div>
+        </div>
+    </div>
 
      <!--Barra_titulo_chat-->
      <div class="col-sm-9 message_section">

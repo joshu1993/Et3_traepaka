@@ -47,9 +47,17 @@ class Producto extends AppModel
 			'conditions'=>'',
 			'depend' => false
 		)
-	
-	
 	);
+
+	public $hasMany = array( //chats
+		'Chat'=> array(
+			'className'=>'Chat',
+			'foreignKey'=> 'user_id',
+			'conditions'=>'',
+			'depend' => true //elimina todos los chats relacionados con el producto si lo llegamos a eliminar
+			)
+	);
+
 	
 	
 	public $validate = array(

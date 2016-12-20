@@ -152,6 +152,13 @@ App::uses('AppModel', 'Model');
 			'foreignKey'=> 'user_id',
 			'conditions'=>'',
 			'depend' => true //elimina todos los productos relacionados con el usuario si lo llegamos a eliminar
+			),
+
+		'Chat'=> array(
+			'className'=>'Chat',
+			'foreignKey'=> 'user_id',
+			'conditions'=>'',
+			'depend' => true //elimina todos los productos relacionados con el usuario si lo llegamos a eliminar
 			)
 	);
 

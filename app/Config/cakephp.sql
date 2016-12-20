@@ -61,25 +61,25 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-/*
+
 -- -----------------------------------------------------
 -- Table CHATS
 -- -----------------------------------------------------
-/*
+
 
 DROP TABLE IF EXISTS `chats`;
 
 CREATE TABLE IF NOT EXISTS `chats` (
   `id` INT UNSIGNED AUTO_INCREMENT,
-  `content` TEXT,
-  `moddate` TIMESTAMP NOT NULL,
+  `mensaje` TEXT,
+  `vendedor` boolean,
   `user_id` INTEGER UNSIGNED, 
   `producto_id` INTEGER UNSIGNED,
   PRIMARY KEY (`id`)
 )
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-*/
+
 
 /*CREATE INDEX `fk_Chat_Usuario1_idx` ON `chats` (`user_id` ASC);*/
 
@@ -88,7 +88,7 @@ ALTER TABLE productos
   REFERENCES users (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
-/*
+
 ALTER TABLE chats
   ADD FOREIGN KEY (user_id) 
   REFERENCES users (id)
@@ -99,6 +99,7 @@ ALTER TABLE chats
   ON DELETE CASCADE
   ON UPDATE CASCADE;
 
+ /*
 ALTER TABLE responses_chats
   ADD FOREIGN KEY (user_id) 
   REFERENCES users (id)
@@ -156,4 +157,4 @@ INSERT INTO `chats` (`id`, `content`, `moddate`, `user_id`, `producto_id`) VALUE
 */
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
-SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;                        
