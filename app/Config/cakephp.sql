@@ -61,7 +61,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-
+/*
 -- -----------------------------------------------------
 -- Table MESSAGES
 -- -----------------------------------------------------
@@ -75,13 +75,13 @@ CREATE TABLE `messages` (
   `user_id` int(11) DEFAULT NULL,
   `chat_id` int(11) DEFAULT NULL,
   `username` varchar(50)  DEFAULT NULL,
-  `time` int(11) DEFAULT NULL,
-  `update_time` int(11) DEFAULT NULL,
+  `time` DATETIME,
+  `update_time` DATETIME,
   `is_actived` int(1) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
+*/
 -- -----------------------------------------------------
 -- Table CHATS
 -- -----------------------------------------------------
@@ -90,13 +90,12 @@ DROP TABLE IF EXISTS `chats`;
 
 CREATE TABLE `chats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) DEFAULT NULL,
   `message` text,
-  `user_id` int(11) DEFAULT NULL,
-  `producto_id` int(11) DEFAULT NULL,
-  `created_by` varchar(255) DEFAULT NULL,
-  `time` int(11) DEFAULT NULL,
-  `update_time` int(11) DEFAULT NULL,
+  `created_by` boolean DEFAULT NULL,
+  `time` DATETIME,
+  `update_time` DATETIME,
+  `user_id` INT UNSIGNED,
+  `producto_id` INT UNSIGNED,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -136,13 +135,18 @@ ALTER TABLE messages
   REFERENCES chats (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
-
+*/
 ALTER TABLE chats
   ADD FOREIGN KEY (user_id) 
   REFERENCES users (id)
   ON DELETE CASCADE
+  ON UPDATE CASCADE,
+  ADD FOREIGN KEY (producto_id) 
+  REFERENCES productos (id)
+  ON DELETE CASCADE
   ON UPDATE CASCADE;
-*/
+  
+
 -- -----------------------------------------------------
 -- INSERTS `USERS`
 -- -----------------------------------------------------
@@ -165,33 +169,33 @@ INSERT INTO `productos` (`id`, `name`, `description`, `moddate`, `place`, `price
 (5, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', NULL, 'Alicante', 30, 'mando.jpg', '5', 'Tecnologia', '2016-12-14 10:48:59', '2016-12-14 10:48:59', 1),
 (6, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', NULL, 'Santander', 550, 'iphone.jpg', '6', 'Tecnologia', '2016-12-14 10:51:29', '2016-12-14 10:51:29', 1);
 
-
+/*
 -- -----------------------------------------------------
 -- INSERTS `MESSAGES`
 -- -----------------------------------------------------
 
 INSERT INTO `messages`(`id`,`message`,`user_id`,`chat_id`,`username`,`time`,`update_time`,`is_actived`) values 
-(1,'sfsdfsdfsdfsd',2,1,'demo',1387445587,1387445701,1),
-(2,'erdd',2,1,'demo',1387445707,1387448091,1),
-(3,'asd',2,1,'demo',1387445728,1387446543,0),
-(4,'a',1,1,'admin',1387446260,1387446703,0),
-(5,'a',1,1,'admin',1387446750,1387446762,0),
-(6,'a',2,1,'demo',1387448081,1387448084,0),
-(7,'ad',2,1,'demo',1387448095,1387448868,0),
-(8,'a',2,1,'demo',1387448199,1387448875,1),
-(9,'a',2,1,'demo',1387448359,1387448865,0),
-(10,'d',2,1,'demo',1387448562,1387448609,0),
-(11,'b',2,1,'demo',1387448877,1387448877,1),
-(12,'a',1,1,'admin',1387449306,1387449308,0);
-
+(1,'sfsdfsdfsdfsd',2,1,'demo',NOW(),NOW(),1),
+(2,'erdd',2,1,'demo',NOW(),NOW(),1),
+(3,'asd',2,1,'demo',NOW(),NOW(),0),
+(4,'a',1,1,'admin',NOW(),NOW(),0),
+(5,'a',1,1,'admin',NOW(),NOW(),0),
+(6,'a',2,1,'demo',NOW(),NOW(),0),
+(7,'ad',2,1,'demo',NOW(),NOW(),0),
+(8,'a',2,1,'demo',NOW(),NOW(),1),
+(9,'a',2,1,'demo',NOW(),NOW(),0),
+(10,'d',2,1,'demo',NOW(),NOW(),0),
+(11,'b',2,1,'demo',NOW(),NOW(),1),
+(12,'a',1,1,'admin',NOW(),NOW(),0);
+*/
 -- -----------------------------------------------------
 -- INSERTS `CHATS`
 -- -----------------------------------------------------
 
-INSERT INTO `chats`(`id`,`name`,`message`,`user_id`,`producto_id`,`created_by`,`time`,`update_time`) values 
-(1,'hola','Prueba',1,1,'admin',1387435552,1387435552),
-(2,'prueba','hola que tal?',1,2,'admin',1387435729,1387435729),
-(3,'nuevochat','Bien y tu?',1,3,'admin',1387449274,1387449274);
+INSERT INTO `chats`(`id`,`message`,`created_by`,`time`,`update_time`,`user_id`,`producto_id`) values 
+(1,'Prueba',0,NOW(),NOW(),1,1),
+(2,'hola que tal?',1,NOW(),NOW(),2,2),
+(3,'Bien y tu?',0,NOW(),NOW(),3,3);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

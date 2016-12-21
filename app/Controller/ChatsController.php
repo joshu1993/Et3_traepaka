@@ -52,12 +52,11 @@
 
 	public function mostrar(){
 
-		$this->set('chat', $this->Chat->find('all', array(
-			"conditions" => array(
-				"user_id" => $this->Auth->user()["id"]))
-		));
+		$this->set('chats', $this->Chat->find('all'));
 		
 			}
+
+	
 
 	public function eliminar($id)
 	{

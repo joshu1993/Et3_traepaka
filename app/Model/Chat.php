@@ -3,7 +3,7 @@
 class Chat extends AppModel {
  
     public $validate = array(
-                    'key' => array(
+                    'id' => array(
                              'rule' => array('minLength', '1')
                            ),
                     'name' => array(

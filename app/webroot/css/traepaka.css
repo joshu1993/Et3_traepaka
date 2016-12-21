@@ -16,12 +16,12 @@
   padding-left: 0px;
 
 }
-
 .input-group-btn:last-child>.btn, .input-group-btn:last-child>.btn-group {
     z-index: 2;
     margin-left: -1px;
     margin-top: 0px;
 }
+
 
 .btn-default{
 
