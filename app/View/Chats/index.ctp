@@ -50,8 +50,8 @@
      <div class="col-sm-7 message_section">
      <div class="row">
      <div class="new_message_head">
-     <div class="pull-left"><button>JAVIER <!--<?= $user['id']
-               ?>--></button></div></div>
+     <div class="pull-left"><button><?= $us['Chat']['name']
+               ?></button></div></div>
      
      <!--Area de chat-->
      
@@ -59,15 +59,17 @@
      <ul class="list-unstyled">
      <div>
               <!-- aqui hay que hacer una función que muestre de primero el mensaje del comprador, y despues muestre la contestacion del current_user-->
-
+                  <?php if(count($chats) == 0): ?>
+                     <h3> No tiene chats asociados </h3>
+                  <?php endif; ?>
                   <?php foreach($chats as $us): ?>
                     <li class="left clearfix">
                     <span class="chat-img pull-left">
                      <img src="../app/webroot/img/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
                      </span>
                       <div class="chat-body1 clearfix">
-                        <p>Hola Jorge, estoy interesado en la Ducati de tu anuncio y me gustaría que me dieses más información sobre ella</p>
-                        <div class="chat_time pull-right">08:38</div>
+                        <?php echo $us['Chat']['message']; ?>
+                        <div class="chat_time pull-right"><?php echo $us['Chat']['time']; ?></div>
                         </div>
                     </li>
                   <?php endforeach; ?>
@@ -89,7 +91,7 @@
               <?php echo $this->Form->create('Chat'); ?>
                 <fieldset>
                   <?php
-                      echo $this->Form->input('Mensaje', array('rows'=>3, 'label' => ''));
+                      echo $this->Form->input('Message', array('rows'=>3, 'label' => ''));
                       echo $this->Form->hidden('user_id', array('value' => $current_user['id']));
                   ?>
                 </fieldset>
