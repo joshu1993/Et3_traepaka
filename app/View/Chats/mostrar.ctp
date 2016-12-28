@@ -23,6 +23,7 @@
                 
                      <div>
                         <?php foreach($chats as $chat): ?>
+                        <?php if($chat['Chat']['user_id'] == $current_user['id']): ?>
                           <li class="left clearfix">
                               <span class="chat-img pull-left">
                               <img src="../app/webroot/img/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
@@ -36,6 +37,7 @@
                               </div>
                             </div>
                           </li>
+                        <?php endif; ?>
                         <?php endforeach; ?>
                   </div>
                   </ul>
@@ -65,7 +67,7 @@
                      <h3> No tiene chats asociados </h3>
                   <?php endif; ?>  
                   <?php foreach($chats as $chat):?>
-                    <?php print_r($current_user)?>
+                    
                     <?php if($chat['Chat']['created_by'] == 0): ?>
                     <li class="left clearfix">
                     <span class="chat-img pull-left">
@@ -82,6 +84,22 @@
            </div>
         </ul>
     </div>
+
+    <!--Escribir_mensaje-->
+          <div class="message_write">
+              <?php echo $this->Form->create('Chat'); ?>
+                <fieldset>
+                  <?php
+                      echo $this->Form->hidden('created_by', array('value' => 0));
+                      echo $this->Form->input('message', array('rows'=>3, 'label' => ''));
+                      echo $this->Form->hidden('user_id', array('value' => $current_user['id']));
+                  ?>
+                </fieldset>
+                  
+              <div class="chat_bottom">
+                <?php echo $this->Form->end('Enviar mensaje'); ?>
+              </div>
+          </div>
 
    </div>
  </div>

@@ -21,7 +21,16 @@
 <p><strong>Categoría: </strong><?php echo $producto['Producto']['category']; ?></p>
 <p><strong>Fecha de publicación: </strong><?php echo $producto['Producto']['created']; ?></p>
 
+<div class="loquiero">
+<?php
+  echo $this->Html->link('Lo quiero!',array('controller'=>'chats','action'=>'mostrar'));
+?>
 </div>
+
+</div>
+
+
+
 
 <div class="redireccion">
 <?php

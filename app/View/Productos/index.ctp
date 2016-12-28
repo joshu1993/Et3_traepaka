@@ -28,7 +28,8 @@
               <h3><?php echo $producto['Producto']['description']; ?></h3>
             <div id="botones" class="col-sm-6" >
               <button type="submit" class="verdetalles"><?php echo $this->Form->postLink('Detalles', array('action'=> 'ver', $producto['Producto']['id'])); ?></button>
-              <button type="submit" class="loquiero"><?php echo $this->Form->postLink('Lo quiero!', array('action'=> 'chat', $producto['Producto']['id'])); ?></button>
+             <div class="loquiero">
+             <?php echo $this->Html->link('Lo quiero!', array('controller'=> 'chats','action'=> 'add')); ?></div>
             </div>
           </div>
 		    </div>
