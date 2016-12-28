@@ -15,9 +15,10 @@
 
 <?php echo $this->Form->create('Chat'); ?><!-- crear mensaje create('Mensaje')-->
     <?php
-        echo $this->Form->hidden('created_by', array('value' => 0));
-		echo $this->Form->input('message', array('rows'=>3, 'label' => ''));
-		echo $this->Form->hidden('user_id', array('value' => $current_user['id']));
+          echo $this->Form->hidden('created_by', array('value' => $current_user['id']));
+          echo $this->Form->input('message', array('rows'=>3, 'label' => ''));
+          echo $this->Form->hidden('user_id', array('value' => $chat['User']['id']));
+          echo $this->Form->hidden('producto_id', array('value' => $chat['Producto']['id']));
     ?>
     </fieldset>
 <?php echo $this->Form->end('Crear chat'); ?>
@@ -27,7 +28,7 @@
 
 <div class="inicio">
 <?php 
-echo $this->Html->link( "Volver a la lista de chats",   array('controller'=>'chats','action'=>'index')); 
+echo $this->Html->link( "Volver a la lista de chats",   array('controller'=>'chats','action'=>'mostrar')); 
 ?>
 </div>
 

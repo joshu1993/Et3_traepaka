@@ -736,6 +736,7 @@ h5 {
 .chat_area .admin_chat .chat-body1 {
   margin-left: 0;
   margin-right: 50px;
+  float:right;
 }
 
 .chat_area li:last-child {

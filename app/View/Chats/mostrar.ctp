@@ -23,7 +23,7 @@
                 
                      <div>
                         <?php foreach($chats as $chat): ?>
-                        <?php if($chat['Chat']['user_id'] == $current_user['id']): ?>
+                        <?php if($chat['Chat']['user_id'] <> $current_user['id']): ?>
                           <li class="left clearfix">
                               <span class="chat-img pull-left">
                               <img src="../app/webroot/img/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
@@ -51,7 +51,7 @@
      <div class="row">
      <div class="new_message_head">
         <div class="pull-left">
-         <button><?= $chat['User']['username']?></button>
+         <button><?= $chat['Producto']['name']?></button>
         </div>
      </div>
 
@@ -68,18 +68,19 @@
                   <?php endif; ?>  
                   <?php foreach($chats as $chat):?>
                     
-                    <?php if($chat['Chat']['created_by'] == 0): ?>
+                    <?php if($chat['Chat']['created_by'] == $current_user['id']): ?>
                     <li class="left clearfix">
                     <span class="chat-img pull-left">
                      <img src="../app/webroot/img/usuario_hombre.jpg" alt="User Avatar" class="img-circle">
                      </span>
                       <div class="chat-body1 clearfix">
                         <?php echo $chat['Chat']['message']; ?>
-                        <!--<div class="chat_time pull-right"><?php echo $us['Chat']['time']; ?></div>-->
+                        <div class="chat_time"><?php echo $chat['Chat']['time']; ?></div>
                         </div>
                     </li>
                     <?php endif; ?>
                   <?php endforeach; ?>
+                                  
                   
            </div>
         </ul>
@@ -90,10 +91,14 @@
               <?php echo $this->Form->create('Chat'); ?>
                 <fieldset>
                   <?php
-                      echo $this->Form->hidden('created_by', array('value' => 0));
+                      echo $this->Form->hidden('created_by', array('value' => $current_user['id']));
                       echo $this->Form->input('message', array('rows'=>3, 'label' => ''));
-                      echo $this->Form->hidden('user_id', array('value' => $current_user['id']));
+                      echo $this->Form->hidden('time', array('value' => $chat['Chat']['time']));
+                      echo $this->Form->hidden('update_time', array('value' => $chat['Chat']['update_time']));
+                      echo $this->Form->hidden('user_id', array('value' => $chat['User']['id']));
+                      echo $this->Form->hidden('producto_id', array('value' => $chat['Producto']['id']));
                   ?>
+          
                 </fieldset>
                   
               <div class="chat_bottom">

@@ -91,7 +91,7 @@ DROP TABLE IF EXISTS `chats`;
 CREATE TABLE `chats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `message` text,
-  `created_by` boolean DEFAULT NULL,
+  `created_by` INT UNSIGNED,
   `time` DATETIME,
   `update_time` DATETIME,
   `user_id` INT UNSIGNED,

@@ -54,6 +54,16 @@
 
 		$this->set('chats', $this->Chat->find('all'));
 		
+		if($this->request->is('post')) {
+				$this->Chat->create();
+				if($this->Chat->save($this->request->data)) {
+					$this->Flash->success('El chat ha sido creado');
+					 return $this->redirect(array('controller' => 'chats', 'action' => 'mostrar'));		
+				}
+				$this->Flash->error('El chat no se ha podido crear');	
+				$this->redirect($this->referer());			
+			}
+		
 			}
 
 	

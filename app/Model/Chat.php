@@ -6,9 +6,6 @@ class Chat extends AppModel {
                     'id' => array(
                              'rule' => array('minLength', '1')
                            ),
-                    'name' => array(
-                              'rule' => array('minLength', '1')
-                            ),
                     'message' => array(
                                  'rule' => array('minLength', '1')
                                )

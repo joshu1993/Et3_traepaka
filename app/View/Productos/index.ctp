@@ -29,7 +29,7 @@
             <div id="botones" class="col-sm-6" >
               <button type="submit" class="verdetalles"><?php echo $this->Form->postLink('Detalles', array('action'=> 'ver', $producto['Producto']['id'])); ?></button>
              <div class="loquiero">
-             <?php echo $this->Html->link('Lo quiero!', array('controller'=> 'chats','action'=> 'add')); ?></div>
+             <?php echo $this->Html->link('Lo quiero!', array('controller'=> 'chats','action'=> 'mostrar')); ?></div>
             </div>
           </div>
 		    </div>
