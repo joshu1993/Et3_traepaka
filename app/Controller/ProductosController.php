@@ -50,7 +50,24 @@ class ProductosController extends AppController
 			}
 			$this-> set('producto', $producto);
 		}
+/*
+	public function chat ($id= Null){
+	
+			if (!$id)
+			{
+				throw new NotFoundException('Datos Invalidos');
+			}
 
+			$chat= $this->Chat->findById($id);
+
+			if(!$chat)
+			{
+				throw new NotFoundException('El chat no existe');
+			}
+			$this-> set('chat', $chat);
+		}
+
+*/
 	public function mostrar(){
 
 		$this->set('productos', $this->Producto->find('all', array(

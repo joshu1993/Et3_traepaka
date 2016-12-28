@@ -41,7 +41,7 @@
 				throw new NotFoundException('Datos Invalidos');
 			}
 
-			$Chat= $this->Chat->findById($id);
+			$chat= $this->Chat->findById($id);
 
 			if(!$chat)
 			{
@@ -53,7 +53,7 @@
 	public function mostrar(){
 
 		$this->set('chats', $this->Chat->find('all'));
-		
+
 		if($this->request->is('post')) {
 				$this->Chat->create();
 				if($this->Chat->save($this->request->data)) {
