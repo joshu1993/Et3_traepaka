@@ -57,15 +57,29 @@
             <?php echo $this->Form->end(); ?>
           </div>
         </div>
-
-        </ul>
+<?php if ($current_user['tipo']=='user'): ?>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp<?= $current_user['username'] ?>
+               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp <?=$current_user['username']
+               ?>
                </button>
-            
+             
         </div>
         </ul>
+	<?php endif; ?>
+	<?php if ($current_user['tipo']=='admin'): ?>
+        <ul class="nav navbar-nav navbar-right">
+        <div id="nombredeusuario" class= "col-sm-1">
+               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp <?=$current_user['username']
+               ?>
+               </button>
+			   <button type="submit" class="listausuarios"><?php echo $this->Html->link('lista usuarios',array('controller'=>'users','action'=>'ver'));
+               ?>
+               </button>
+             
+        </div>
+        </ul>
+	<?php endif; ?>
         
         <ul class="nav navbar-nav navbar-right">
            <button type="submit" class="cierresesion"><?php echo $this->Html->link('Cerrar Sesión',array('controller'=>'users','action'=>'logout')); ?></button>

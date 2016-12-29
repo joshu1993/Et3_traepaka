@@ -502,19 +502,19 @@ h5 {
 
 #nombredeusuario{
   margin-left:40px;
+  display:inline;
 
 }
 
 .nombreusuario{
   color: #5bb85c;
   background-color: #222222;
-  display: inline-block;
+  display: inline;
   height: 50px;
   padding: 6px 12px;
   margin-bottom: 0;
   margin-left:5px;
   font-size: 14px;
-  font-weight: 400;
   line-height: 1.42857143;
   text-align: center;
   white-space: nowrap;
@@ -530,6 +530,32 @@ h5 {
   border: 1px solid transparent;
   border-radius: 4px;
   }
+  
+ .listausuarios{
+  background-color: #222222;
+  display: inline;
+  height: 50px;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  margin-left:5px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+ 
+ }
+  
 
 #custom-search-input {
   background: #e8e6e7 none repeat scroll 0 0;
