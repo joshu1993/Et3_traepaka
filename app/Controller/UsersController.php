@@ -22,7 +22,7 @@ App::uses('AppController', 'Controller');
 		
 			// Si ya está logueado lo redirige
 			if($this->Session->check('Auth.User')){
-				$this->redirect(array('action' => 'index'));		
+				$this->redirect(array('controller'=>'productos','action'=>'index'));		
 			}
 
 			if ($this->request->is('post')) {
