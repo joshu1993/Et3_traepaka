@@ -114,6 +114,32 @@ margin-top:-68px;
   border-radius: 4px;
   }
 
+.volver{
+  color: #fff;
+  background-color: #FFBF00;
+  display: inline-block;
+  padding: 15px 12px;
+  margin-bottom: 0;
+  margin-top:10px;
+  margin-left: 10px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  }
+
 .amaño{
   color: #fff;
   background-color: #ffffff;
@@ -140,6 +166,9 @@ margin-top:-68px;
   border-radius: 4px;
   }
 
+.colocar{
+  margin-top:10px;
+}
 
  
  

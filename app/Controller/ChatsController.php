@@ -9,7 +9,9 @@
 	    	parent::beforeFilter();
 			
 	        $this->Auth->allow('ver');
-	        //$this->set('current_user', $this->Auth->user());
+            $this->loadModel('Producto');
+
+	        $this->set('current_user', $this->Auth->user());
 			
 	    }
 	
@@ -20,15 +22,35 @@
 	}
 
 	
-	public function add() {
+	public function add($producto_id) {
+			$this->set('producto_id', $producto_id);
+
 			if($this->request->is('post')) {
+				//se obtiene el id del usuario logueado
 				$this->Chat->create();
-				if($this->Chat->save($this->request->data)) {
+				$formData = $this->request->data["Chat"];
+				$user = $this->Auth->user();
+				$producto = $this->Producto->findById($formData['producto_id'])["Producto"];
+				$datos = array(
+					'message' => $formData['message'],
+					'created_by' => $user["id"],
+                    'user_id' => $producto["user_id"],
+					'producto_id' => $formData['producto_id']
+				);
+
+				if($this->Chat->save($datos)) {
 					$this->Flash->success('El chat ha sido creado');
-					 return $this->redirect(array('controller' => 'chats', 'action' => 'mostrar'));		
+					if (isset($formData['no_redirect'])) {
+                        $this->redirect($this->referer());
+                    } else {
+                        $this->redirect(array('controller' => 'chats', 'action' => 'mostrar'));
+                    }
+
+					 return;
 				}
 				$this->Flash->error('El chat no se ha podido crear');	
-				$this->redirect($this->referer());			
+				$this->redirect($this->referer());	
+				//var_dump($this->request->query('id'));
 			}
 		}
 
@@ -51,8 +73,45 @@
 		}
 
 	public function mostrar(){
+	    $producto_id = isset($this->params->query['producto_id']) ? $this->params->query['producto_id'] : null;
 
-		$this->set('chats', $this->Chat->find('all'));
+        $user = $this->Auth->user();
+
+	    $producto = null;
+	    if (!is_null($producto_id)){
+	        $producto = $this->Producto->findById($producto_id);
+        } else {
+            $producto = $this->Chat->find('first', array(
+                'conditions' => array(
+                    'OR' => array(
+                        'Chat.user_id' => $user["id"],
+                        'Chat.created_by' => $user["id"]
+                    )
+                )
+            ));
+        }
+
+        $chats = $this->Chat->find('all', array(
+           'conditions' => array(
+               'producto_id' => $producto['Producto']['id']
+           )
+        ));
+
+		$this->set('chats', $chats);
+		$this->set('producto', $producto);
+
+		//var_dump($producto);
+
+		$conversaciones = $chats = $this->Chat->find('all', array(
+            'conditions' => array(
+                'OR' => array(
+                    'Chat.user_id' => $user["id"],
+                    'Chat.created_by' => $user["id"]
+                )
+            )
+        ));
+
+		$this->set('conversaciones', $conversaciones);
 
 		if($this->request->is('post')) {
 				$this->Chat->create();

@@ -15,10 +15,8 @@
 
 <?php echo $this->Form->create('Chat'); ?><!-- crear mensaje create('Mensaje')-->
     <?php
-          echo $this->Form->hidden('created_by', array('value' => $current_user['id']));
           echo $this->Form->input('message', array('rows'=>3, 'label' => ''));
-          echo $this->Form->hidden('user_id', array('value' => $chat['User']['id']));
-          echo $this->Form->hidden('producto_id', array('value' => $chat['Producto']['id']));
+          echo $this->Form->hidden('producto_id', array('value' => $producto_id));
     ?>
     </fieldset>
 <?php echo $this->Form->end('Crear chat'); ?>

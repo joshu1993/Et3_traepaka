@@ -157,6 +157,7 @@ INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`t
 (3, 'joshua93', 'Joshua', 'Rodriguez Martiña', '81df60724410ef1ea9a166dad75086bdecfcd35a', 'joshua93@gmail.com','admin',NOW());
 
 
+
 -- -----------------------------------------------------
 -- INSERTS `PRODUCTS`
 -- -----------------------------------------------------
@@ -193,9 +194,9 @@ INSERT INTO `messages`(`id`,`message`,`user_id`,`chat_id`,`username`,`time`,`upd
 -- -----------------------------------------------------
 
 INSERT INTO `chats`(`id`,`message`,`created_by`,`time`,`update_time`,`user_id`,`producto_id`) values 
-(1,'Prueba',0,NOW(),NOW(),1,1),
+(1,'Prueba',2,NOW(),NOW(),1,1),
 (2,'hola que tal?',1,NOW(),NOW(),2,2),
-(3,'Bien y tu?',0,NOW(),NOW(),3,3);
+(3,'Bien y tu?',2,NOW(),NOW(),3,3);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

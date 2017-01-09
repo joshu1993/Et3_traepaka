@@ -16,20 +16,13 @@
 		echo $this->Form->input('email');
         echo $this->Form->input('password_update', array( 'label' => 'Nueva contraseña', 'maxLength' => 255, 'type'=>'password', 'required' => 0));
 		echo $this->Form->input('password_confirm_update', array('label' => 'Repetir contraseña', 'maxLength' => 255, 'title' => 'Repite la contraseña', 'type'=>'password', 'required' => 0));
-		
-		echo $this->Form->input('tipo', array(
-            'options' => array( 'admin' => 'Admin', 'user' => 'User')
-        )); 
 ?>
     </fieldset>
 <?php echo $this->Form->end('Modificar usuario'); ?>
 </div>
-<div class="redireccion">
 
-<table>
+<div class="volver">
 <?php echo $this->Html->link('Volver lista de usuarios',array('controller'=>'users','action'=>'index'));?>
-</table>
-
 </div>
-</body>
+
 

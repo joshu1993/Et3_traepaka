@@ -25,6 +25,13 @@ class Chat extends AppModel {
             'foreignKey'=> 'user_id',
             'conditions'=>'',
             'depend' => false
+        ),
+
+        'UserCreador'=>array(
+            'className'=>'User',
+            'foreignKey'=> 'created_by',
+            'conditions'=>'',
+            'depend' => false
         )
     
     
