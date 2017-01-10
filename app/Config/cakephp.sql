@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password`  VARCHAR(255) NOT NULL,
   `email` VARCHAR(50) NOT NULL,
   `tipo` VARCHAR(20) NOT NULL,
-  `created` DATETIME DEFAULT NULL,
+  `created` DATETIME DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -53,35 +53,13 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `foto` VARCHAR(255) DEFAULT NULL,
   `foto_dir` VARCHAR(255) DEFAULT NULL,
   `category` ENUM ('Casa y Jardin', 'Caza y Pesca', 'Deportes', 'Mobiliario', 'Moda', 'Motor', 'Tecnologia', 'Otros'),
-  `created` DATETIME,
-  `modified` DATETIME,
+  `created` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `modified` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `user_id` INT UNSIGNED,
   PRIMARY KEY (`id`)
 ) 
 ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-/*
--- -----------------------------------------------------
--- Table MESSAGES
--- -----------------------------------------------------
-
-
-DROP TABLE IF EXISTS `messages`;
-
-CREATE TABLE `messages` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `message` text,
-  `user_id` int(11) DEFAULT NULL,
-  `chat_id` int(11) DEFAULT NULL,
-  `username` varchar(50)  DEFAULT NULL,
-  `time` DATETIME,
-  `update_time` DATETIME,
-  `is_actived` int(1) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-*/
 -- -----------------------------------------------------
 -- Table CHATS
 -- -----------------------------------------------------
@@ -92,28 +70,13 @@ CREATE TABLE `chats` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `message` text,
   `created_by` INT UNSIGNED,
-  `time` DATETIME,
-  `update_time` DATETIME,
+  `time` DATETIME DEFAULT CURRENT_TIMESTAMP,
+  `update_time` DATETIME DEFAULT CURRENT_TIMESTAMP,
   `user_id` INT UNSIGNED,
   `producto_id` INT UNSIGNED,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-/*
-
-DROP TABLE IF EXISTS `chats`;
-
-CREATE TABLE IF NOT EXISTS `chats` (
-  `id` INT UNSIGNED AUTO_INCREMENT,
-  `mensaje` TEXT,
-  `vendedor` boolean,
-  `user_id` INTEGER UNSIGNED, 
-  `producto_id` INTEGER UNSIGNED,
-  PRIMARY KEY (`id`)
-)
-ENGINE=InnoDB DEFAULT CHARSET=utf8;
-*/
 
 -- -----------------------------------------------------
 -- FOREIGN KEYS
@@ -125,17 +88,7 @@ ALTER TABLE productos
   REFERENCES users (id)
   ON DELETE CASCADE
   ON UPDATE CASCADE;
-/*
-ALTER TABLE messages
-  ADD FOREIGN KEY (user_id) 
-  REFERENCES users (id)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE,
-  ADD FOREIGN KEY (chat_id) 
-  REFERENCES chats (id)
-  ON DELETE CASCADE
-  ON UPDATE CASCADE;
-*/
+
 ALTER TABLE chats
   ADD FOREIGN KEY (user_id) 
   REFERENCES users (id)
@@ -157,9 +110,8 @@ INSERT INTO `users` (`id`, `username`, `name`, `surname`, `password`, `email`,`t
 (3, 'joshua93', 'Joshua', 'Rodriguez Martiña', '81df60724410ef1ea9a166dad75086bdecfcd35a', 'joshua93@gmail.com','admin',NOW());
 
 
-
 -- -----------------------------------------------------
--- INSERTS `PRODUCTS`
+-- INSERTS `PRODUCTOS`
 -- -----------------------------------------------------
 
 INSERT INTO `productos` (`id`, `name`, `description`, `moddate`, `place`, `price`, `foto`, `foto_dir`, `category`, `created`, `modified`, `user_id`) VALUES
@@ -170,33 +122,16 @@ INSERT INTO `productos` (`id`, `name`, `description`, `moddate`, `place`, `price
 (5, 'Mando PS4', 'Mando personalizado de ps4 en perfecto estado. Comprado hace menos de 6 meses y con muy poco uso. Doy 1 año de garantía.', NULL, 'Alicante', 30, 'mando.jpg', '5', 'Tecnologia', '2016-12-14 10:48:59', '2016-12-14 10:48:59', 1),
 (6, 'Iphone 6S', 'Urge la venta de este Iphone 6S. Me he dado cuenta de que Apple no es lo mio y quiero volver a Android de una vez.', NULL, 'Santander', 550, 'iphone.jpg', '6', 'Tecnologia', '2016-12-14 10:51:29', '2016-12-14 10:51:29', 1);
 
-/*
--- -----------------------------------------------------
--- INSERTS `MESSAGES`
--- -----------------------------------------------------
-
-INSERT INTO `messages`(`id`,`message`,`user_id`,`chat_id`,`username`,`time`,`update_time`,`is_actived`) values 
-(1,'sfsdfsdfsdfsd',2,1,'demo',NOW(),NOW(),1),
-(2,'erdd',2,1,'demo',NOW(),NOW(),1),
-(3,'asd',2,1,'demo',NOW(),NOW(),0),
-(4,'a',1,1,'admin',NOW(),NOW(),0),
-(5,'a',1,1,'admin',NOW(),NOW(),0),
-(6,'a',2,1,'demo',NOW(),NOW(),0),
-(7,'ad',2,1,'demo',NOW(),NOW(),0),
-(8,'a',2,1,'demo',NOW(),NOW(),1),
-(9,'a',2,1,'demo',NOW(),NOW(),0),
-(10,'d',2,1,'demo',NOW(),NOW(),0),
-(11,'b',2,1,'demo',NOW(),NOW(),1),
-(12,'a',1,1,'admin',NOW(),NOW(),0);
-*/
 -- -----------------------------------------------------
 -- INSERTS `CHATS`
 -- -----------------------------------------------------
 
 INSERT INTO `chats`(`id`,`message`,`created_by`,`time`,`update_time`,`user_id`,`producto_id`) values 
-(1,'Prueba',2,NOW(),NOW(),1,1),
-(2,'hola que tal?',1,NOW(),NOW(),2,2),
-(3,'Bien y tu?',2,NOW(),NOW(),3,3);
+(1,'Hola, me interesa tu anuncio',2, '2017-01-07 19:32:25', '2017-01-07 19:32:25',1,1),
+(2,'El precio de la moto es negociable?',1, '2017-01-09 18:29:06', '2017-01-09 18:29:06',2,2),
+(3,'Hola, que tal he visto tu bolso y me interesa',2, '2017-01-10 10:39:11', '2017-01-10 10:39:11',3,3),
+(4,'En qué estado se encuentra el futbolín?',3, '2017-01-10 11:40:01', '2017-01-10 11:40:01',1,5),
+(5,'¿Enviarías la escopeta por correo?',3, '2017-01-10 13:10:17', '2017-01-10 13:10:17',2,4);
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

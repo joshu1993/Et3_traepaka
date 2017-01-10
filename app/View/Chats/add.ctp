@@ -26,7 +26,7 @@
 
 <div class="inicio">
 <?php 
-echo $this->Html->link( "Volver a la lista de chats",   array('controller'=>'chats','action'=>'mostrar')); 
+echo $this->Html->link( "Volver al inicio",   array('controller'=>'productos','action'=>'index'));
 ?>
 </div>
 

@@ -6,15 +6,15 @@
 
 <div class= "user form">
 
-<h1>Detalles del usuario <?php echo $user['User']['username']; ?></h1>
-<div class = "colocar">
+<h1>Detalles del usuario: <?php echo $user['User']['username']; ?></h1>
+
 <p><strong>Username: </strong><?php echo $user['User']['username']; ?></p>
 <p><strong>Name: </strong><?php echo $user['User']['name']; ?></p>
 <p><strong>Apellido: </strong><?php echo $user['User']['surname']; ?></p>
 <p><strong>Email: </strong><?php echo $user['User']['email']; ?></p>
 <p><strong>Tipo: </strong><?php echo $user['User']['tipo']; ?></p>
 <p><strong>Creado: </strong><?php echo $user['User']['created']; ?></p>
-</div>
+
 <div>
 <h1>Productos Usuario:</h1>
 
@@ -26,7 +26,7 @@
 <div>
 
 	<?php foreach($user['Producto'] as $us): ?>
-		
+
 		<p>
 			Nombre: <?php echo $us['name']; ?>
 			<br />
@@ -42,7 +42,7 @@
 		
 	<?php endforeach; ?>
 	</div>
-	</div>
+</div>
 
 </div>
 

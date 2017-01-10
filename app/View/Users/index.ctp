@@ -46,6 +46,6 @@
 
 <div class="redireccion">
 
-<?php echo $this->Html->link( "Crear usuario",   array('action'=>'add'),array('escape' => false) ); ?>
+<?php echo $this->Html->link( "Crear usuario",   array('controller'=>'users', 'action'=>'addadmin')); ?>
 
 </div>

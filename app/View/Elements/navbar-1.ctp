@@ -29,7 +29,7 @@
               <span class="icon-bar"></span>
             </button>
           <div id="logo" >
-          <img src="../app/webroot/img/imagenlogo.png">
+              <img src="<?= $this->Html->url('/img/imagenlogo.png') ?>">
           </div>
         </div>
 

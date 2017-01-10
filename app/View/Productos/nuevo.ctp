@@ -33,7 +33,7 @@
 
 <div class="inicio">
 <?php 
-echo $this->Html->link( "Volver a la lista de productos",   array('controller'=>'productos','action'=>'index')); 
+echo $this->Html->link( "Volver a mis productos",   array('controller'=>'productos','action'=>'mostrar'));
 ?>
 </div>
 

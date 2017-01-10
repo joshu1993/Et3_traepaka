@@ -1,5 +1,5 @@
   
-<!-- app/View/Users/add.ctp -->
+<!-- app/View/Users/addadmin.ctp -->
 <div class="users form">
 <?php echo $this->Form->create('User'); ?>
     <fieldset>
@@ -11,7 +11,9 @@
 		echo $this->Form->input('surname');
         echo $this->Form->input('password', array( 'label' => 'Password (mínimo 8 caracteres):'));
 		echo $this->Form->input('email');
-        echo $this->Form->hidden('tipo', array('value' => 'user'));
+        echo $this->Form->input('tipo', array(
+            'options' => array('admin' => 'Admin', 'user' => 'User')
+        ));
     ?>
     </fieldset>
 <?php echo $this->Form->end('Añadir usuario'); ?>

@@ -50,24 +50,7 @@ class ProductosController extends AppController
 			}
 			$this-> set('producto', $producto);
 		}
-/*
-	public function chat ($id= Null){
-	
-			if (!$id)
-			{
-				throw new NotFoundException('Datos Invalidos');
-			}
 
-			$chat= $this->Chat->findById($id);
-
-			if(!$chat)
-			{
-				throw new NotFoundException('El chat no existe');
-			}
-			$this-> set('chat', $chat);
-		}
-
-*/
 	public function mostrar(){
 
 		$this->set('productos', $this->Producto->find('all', array(
@@ -106,35 +89,6 @@ class ProductosController extends AppController
 		}
 	}
 
-	/*
-	public function editar($id = null) {
-
-		    if (!$id) {
-				$this->Session->setFlash('Introduce usuario');
-				$this->redirect(array('action'=>'index'));
-			}
-
-			$user = $this->User->findById($id);
-			if (!$user) {
-				$this->Session->setFlash('ID Usuario invalido');
-				$this->redirect(array('action'=>'index'));
-			}
-
-			if ($this->request->is('post') || $this->request->is('put')) {
-				$this->User->id = $id;
-				if ($this->User->save($this->request->data)) {
-					$this->Session->setFlash(__('El usuario ha sido modificado'));
-					$this->redirect(array('action' => 'index', $id));
-				}else{
-					$this->Session->setFlash(__('No se ha podido modificar el usuario.'));
-				}
-			}
-
-			if (!$this->request->data) {
-				$this->request->data = $user;
-			}
-        }
-	*/
 	public function eliminar($id)
 	{
 		if($this->request->is('get'))

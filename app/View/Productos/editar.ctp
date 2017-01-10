@@ -28,7 +28,7 @@
 </div>
 
 <div class="redireccion">
-<?php echo $this->Html->link('Volver a lista de productos', array('controller'=>'productos','action'=>'index')); ?>
+<?php echo $this->Html->link('Volver a mis productos', array('controller'=>'productos','action'=>'mostrar')); ?>
 </div>
 </body>
 

@@ -27,7 +27,7 @@
               <span class="icon-bar"></span>
             </button>
           <div id="logo" >
-          <img src="../app/webroot/img/imagenlogo.png">
+              <img src="<?= $this->Html->url('/img/imagenlogo.png') ?>">
           </div>
         </div>
 
@@ -60,8 +60,9 @@
 <?php if ($current_user['tipo']=='user'): ?>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp <?=$current_user['username']
+               <button type="submit" class="nombreusuario"><img src="<?= $this->Html->url('/img/logousuario.png') ?>">&nbsp <?=$current_user['username']
                ?>
+
                </button>
              
         </div>
@@ -70,7 +71,7 @@
   <?php if ($current_user['tipo']=='admin'): ?>
         <ul class="nav navbar-nav navbar-right">
         <div id="nombredeusuario" class= "col-sm-1">
-               <button type="submit" class="nombreusuario"><img src="../app/webroot/img/logousuario.png"></img>    &nbsp <?php echo $this->Html->link($current_user['username'],array('controller'=>'users','action'=>'index'));
+               <button type="submit" class="nombreusuario"><img src="<?= $this->Html->url('/img/logousuario.png') ?>">   &nbsp <?php echo $this->Html->link($current_user['username'],array('controller'=>'users','action'=>'index'));
                ?>
                </button>
          

@@ -7,7 +7,7 @@
 
 <div class="user form">
 
-<h1>Detalles del producto  <?php echo $producto['Producto']['name']; ?></h1>
+<h1>Detalles del producto:  <?php echo $producto['Producto']['name']; ?></h1>
 
 </div>
 
@@ -21,11 +21,9 @@
 <p><strong>Categoría: </strong><?php echo $producto['Producto']['category']; ?></p>
 <p><strong>Fecha de publicación: </strong><?php echo $producto['Producto']['created']; ?></p>
 
-<div class="loquiero">
-<?php
-  echo $this->Html->link('Lo quiero!',array('controller'=>'chats','action'=>'mostrar'));
-?>
-</div>
+    <div class="loquiero">
+        <?php echo $this->Html->link('Lo quiero!', array('controller'=> 'chats','action'=> 'add', $producto['Producto']['id'])); ?>
+    </div>
 
 </div>
 
@@ -34,8 +32,8 @@
 
 <div class="redireccion">
 <?php
-  echo $this->Html->link('Volver a la lista de productos',array('controller'=>'productos','action'=>'index'));
+  echo $this->Html->link('Volver al inicio',array('controller'=>'productos','action'=>'index'));
 ?>
 </div>
-</body>
+
 
